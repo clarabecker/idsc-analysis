@@ -18,9 +18,10 @@
   - IA Explicável
   - Criar um modelo de Regressão (Random Forest, XGBoost) para prever a nota do IDEB de um município com base nos outros 98 indicadores.
   - Mostrar quais fatores que oorrem fora da escola (ex: mortalidade infantil ou coleta de lixo) mais impactam o aprendizado na sua região.
-  
+  - Biblioteca SHAP em Python para gerar gráficos de importância de atributos para cada cluster.
   - "O que o gestor público de SC deve priorizar fora da escola para que o resultado dentro da escola melhore?"
-  - Replicável para outros estados ou a nível nacional
+
+  - IDEB: https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb
     
  **3 - Clustering seguido de Predição Localizada**
 
