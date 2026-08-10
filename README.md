@@ -1,32 +1,50 @@
-## Estrutura da Tabela
+# Predição do IDEB e Análise de Determinantes Sociais via Machine Learning
 
- - Código IBGE: O primeiro número (ex: 1303403).
- - Nome do Município: (ex: Parintins).
- - População: O valor logo após o nome (ex: 96372).
- - UF: Estado (ex: AM).
- - Indicadores (SDG1 a SDG17): A sequência de números decimais que segue são os valores para os indicadores que você detalhou no dicionário.
+## Visão Geral do Projeto
 
- **1 - Clustering de Municípios:**
- 
-  - Agrupar cidades não por tamanho, mas por perfil de desenvolvimento usando modelos de clustering (DBSCAN, Isolation Forest).
-  - Identificar mesmo grupos de desafios por cidade, correlação das variáveis. Exemplo: cidades com alta densidade populacional, baixo saneamento e alta incidência de doenças.
-  - Aplicação de redução de dimensionalidade (PCA) para entender quais indicadores (dos 100) realmente definem o sucesso ou fracasso de uma cidade catarinense.
- 
- **2 - Predição de Desempenho Educacional (IDEB)**  
- 
-  - Através de Determinantes Sociais Verificar como o investimento em infraestrutura (Indicador 60) correlaciona-se com a redução da pobreza (Indicador 1 a 4).
-  - IA Explicável
-  - Criar um modelo de Regressão (Random Forest, XGBoost) para prever a nota do IDEB de um município com base nos outros 98 indicadores.
-  - Mostrar quais fatores que oorrem fora da escola (ex: mortalidade infantil ou coleta de lixo) mais impactam o aprendizado na sua região.
-  - Biblioteca SHAP em Python para gerar gráficos de importância de atributos para cada cluster.
-  - "O que o gestor público de SC deve priorizar fora da escola para que o resultado dentro da escola melhore?"
+Este repositório contém a implementação de um projeto focado em investigar como os determinantes sociais e a infraestrutura municipal afetam a qualidade da educação básica. Utilizando técnicas de Aprendizado de Máquina Não Supervisionado e Supervisionado, o objetivo é entender o cenário e fundamentar a escolha de algoritmos para obter os melhores resultados na predição do Índice de Desenvolvimento da Educação Básica (IDEB), levando em consideração uma separação por agrupamento consistente dos dados.
 
-  - IDEB: https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb
-    
- **3 - Clustering seguido de Predição Localizada**
+### Metodologia
+O pipeline analítico e preditivo do projeto está estruturado nas seguintes etapas:
 
-Fase 1 (Clustering) : Agrupamento dos municípios brasileiros em 4 ou 5 perfis.
+#### 1. Análise Exploratória de Dados (EDA): 
+Realizada com o objetivo de compreender a distribuição dos indicadores do IDSC e identificar padrões preliminares na base de dados.
 
-Fase 2 (Predição): Treinamento um modelo de predição de IDEB para cada grupo.
+#### 2. Pré-processamento:
+Executado visando à adequação dos dados para a execução dos modelos de aprendizado de máquina, garantindo a confiabilidade e o desempenho dos algoritmos.
 
-Ex de resultado: em "Polos Agrícolas", o que mais afeta a educação é o Indicador X, enquanto em "Cidades Turísticas" é o Indicador Y.
+#### 3. Agrupamento Não Supervisionado
+
+Identificação de perfis de municípios semelhantes através de técnicas de aprendizado não supervisionado.Algoritmos Analisados:
+
+* K-Means
+* Agrupamento Hierárquico
+* DBSCAN (Agrupamento Espacial Baseado em Densidade para Aplicações com Ruído).
+
+#### 4. Etapa Preditiva Inicial (Baseline Global)
+
+Aplicação de modelos de regressão na base de dados integral para a obtenção de um resultado preditivo de referência.
+
+Modelo de Referência (Baseline): 
+* Regressão Linear, escolhida por se caracterizar como um modelo mais simples em comparação com os demais.
+Modelos Baseados em Árvores de Decisão:
+* Random Forest
+* XGBoost (Extreme Gradient Boosting)
+* LightGBM (Light Gradient Boosting Machine)
+* CatBoost (Categorical Boosting)
+
+Métricas de Avaliação: Erro Médio Absoluto ($MAE$), Raiz do Erro Quadrático Médio ($RMSE$) e Coeficiente de Determinação ($R^2$).
+
+#### 5. Predição Localizada por Subconjunto
+
+Realização da predição em cada subconjunto da base de dados, definidos pelo modelo de agrupamento que apresentar o melhor desempenho na etapa anterior.
+
+- Estratégia: Serão replicados os mesmos modelos de regressão aplicados na base integral. - - Objetivo: Permitir avaliar e comparar o impacto do agrupamento dos municípios em bases de dados menores na precisão dos resultados (avaliados por $MAE$, $RMSE$ e $R^2$).
+
+#### 6. Interpretabilidade dos Modelos
+
+Extração da relevância dos atributos (indicadores do IDSC) na estimativa do IDEB por meio de duas abordagens complementares:
+- Métricas Intrínsecas (Redução de Variância): Análise da importância estrutural dos atributos calculada a partir da redução da variância dos dados nos nós de decisão dos algoritmos de árvore.
+- Método TreeSHAP: Adotado para mitigar vieses estruturais das métricas nativas e garantir maior consistência teórica. Os valores SHAP quantificam a magnitude e a direção do impacto de cada variável, permitindo identificar de forma clara se um indicador atua de forma positiva ou negativa no desempenho educacional.
+
+
