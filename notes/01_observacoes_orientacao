@@ -1,0 +1,19 @@
+Observações orientações 
+
+- Explorar indicadores com relação a educação - Perguntar - 
+
+- Estratégia de seleção de features 
+
+- Clustering apenas na base de treinamento 
+
+- Valores da variável ta mais próxima de qual centróide, jeito de decidir a qual grupo o município de teste pertence 
+
+- Combinação algoritmos de agrupamento com algoritmos de aprendizado
+
+ Depois:
+
+- Random search do scikit learnig para touning dos modelos (todos) 
+
+
+
+

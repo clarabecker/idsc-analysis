@@ -13,7 +13,11 @@ Realizada com o objetivo de compreender a distribuição dos indicadores do IDSC
 #### 2. Pré-processamento:
 Executado visando à adequação dos dados para a execução dos modelos de aprendizado de máquina, garantindo a confiabilidade e o desempenho dos algoritmos.
 
-#### 3. Agrupamento Não Supervisionado
+#### 3. Estratégia de Seleção de variáveis 
+
+A seleção de atributos utilizou a Matriz de Correlação de Pearson para eliminar variáveis redundantes e mitigar a maldição da dimensionalidade nos algoritmos. Em seguida, a Análise de Componentes Principais (PCA) identificou os eixos de maior variância, extraindo os indicadores com maior carga fatorial (loadings) para garantir aos modelos dados independentes e de alto valor preditivo.
+
+#### 4. Agrupamento Não Supervisionado
 
 Identificação de perfis de municípios semelhantes através de técnicas de aprendizado não supervisionado.Algoritmos Analisados:
 
@@ -21,7 +25,7 @@ Identificação de perfis de municípios semelhantes através de técnicas de ap
 * Agrupamento Hierárquico
 * DBSCAN (Agrupamento Espacial Baseado em Densidade para Aplicações com Ruído).
 
-#### 4. Etapa Preditiva Inicial (Baseline Global)
+#### 5. Etapa Preditiva Inicial (Baseline Global)
 
 Aplicação de modelos de regressão na base de dados integral para a obtenção de um resultado preditivo de referência.
 

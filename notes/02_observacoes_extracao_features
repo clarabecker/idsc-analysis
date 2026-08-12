@@ -1,0 +1,19 @@
+Possível estratégia de seleção de features 
+
+Para a definição dos perfis dos municípios, a seleção de atributos (feature selection) abandonou escolhas empíricas e adotou uma abordagem estatística. Inicialmente, aplicou-se uma matriz de correlação para remover variáveis altamente colineares (redundantes). Em seguida, utilizou-se a Análise de Componentes Principais (PCA) para identificar os indicadores com maior carga de variância. As variáveis que apresentaram maior peso nas componentes principais foram selecionadas como entradas definitivas para o algoritmo K-Means, garantindo que o agrupamento fosse orientado exclusivamente pelos dados.
+
+Para blindar a sua metodologia, você deve citar estes dois conceitos consagrados na literatura:
+
+Artigo 1: A relação matemática entre PCA e K-Means
+
+Referência: Ding, C., & He, X. (2004). K-means clustering via principal component analysis. Proceedings of the twenty-first international conference on Machine learning (ICML).
+
+Como citar no texto: "De acordo com Ding e He (2004), os componentes principais derivados da PCA são as soluções contínuas dos indicadores de pertinência de cluster do K-Means. Portanto, utilizar a PCA para selecionar as variáveis (feature selection) projeta os dados no subespaço ideal onde o K-Means consegue encontrar os agrupamentos de forma mais nítida e com menor taxa de erro estrutural."
+
+Artigo 2: Redução de dimensionalidade em Índices Socioeconômicos
+
+Referência: OECD (2008). Handbook on Constructing Composite Indicators: Methodology and User Guide. OECD Publishing.
+
+Como citar no texto: "A Organização para a Cooperação e Desenvolvimento Econômico (OECD, 2008) preconiza em seu manual de indicadores compostos que a construção de perfis multidimensionais requer a remoção prévia de variáveis com alta colinearidade, seguida de técnicas de análise multivariada, como a PCA, para garantir que os eixos de análise sejam ortogonais e não atribuam peso estatístico redundante a fenômenos correlatos."
+
+"Para a etapa de aprendizado não supervisionado, a seleção de atributos (feature selection) adotou uma abordagem estatística visando mitigar a maldição da dimensionalidade, um problema crítico para algoritmos baseados em distância e densidade. Inicialmente, aplicou-se uma matriz de correlação para remover variáveis altamente colineares. Em seguida, a Análise de Componentes Principais (PCA) foi utilizada para extrair os indicadores com maior carga de variância. Essa redução dimensional projeta os dados em um subespaço ortogonal, garantindo que os algoritmos de K-Means, Agrupamento Hierárquico e DBSCAN encontrem perfis consistentes e não distorcidos por redundância informacional."
