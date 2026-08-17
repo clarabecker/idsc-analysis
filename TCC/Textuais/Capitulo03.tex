@@ -1,0 +1,45 @@
+
+\chapter{Predição do IDEB Municipal com Modelos de Aprendizado de Máquina Explicáveis e Indicadores de Desenvolvimento Sustentável}
+
+A predição do Índice de Desenvolvimento da Educação Básica (IDEB) em âmbito municipal, aplicando modelos em uma base de dados com indicadores exógenos de desenvolvimento sustentável, fornece aos gestores públicos uma ferramenta preditiva e interpretável auxiliando na adoção de políticas públicas educacionais. Portanto, esse trabalho propõe através do uso de modelos de aprendizado de máquina, modelar o impacto do Índice de Desenvolvimento Sustentável das Cidades (IDSC) na qualidade da educação dos municípios brasileiros, de forma complementar empregar métricas de avaliação da importância de atributos e inteligência artificial explicável (XAI) para interpretabilidade do modelo. 
+
+Com o objetivo de validar a melhor abordagem para um problema de regressão, a previsão do valor contínuo do indicador, serão testados modelos baseados em árvore de decisão como \textit{Random Forest}, \textit{XGBoost}, \textit{LightGBM}, \textit{CatBoost} e modelo de Regressão Linear como linha de base para comparação. O critério de avaliação do desempenho dos modelos baseia-se em métricas como o Erro Quadrático Médio (MSE), Erro Absoluto Médio (MAE) e o Coeficiente de Determinação ($R^2$). Para servir de aplicação eficaz ao como auxílio no desenvolvimento da educação, esse cenário exige explicabilidade, sendo assim, necessárias as aplicações de métricas de importância dos atributos e ferramenta de XAI como o Valor SHAP.
+
+A primeira etapa é o pré-processamento da base de dados, realizando o tratamento de dados ausentes. Logo após, o conjunto de dados será dividido entre subconjunto de treinamento e teste, adotando método de validação cruzada \textit{Holdout}, reservando 80\% das observações municipais para treinamento do modelo e 20\% para a avaliação de generalização em dados não vistos. A predição será realizada inicialmente com a base completa com indicadores de cada município. 
+
+\subsection{Análise Exploratória de Dados (EDA)}
+
+Foram apresentadas informações significativas conforme realizada análise exploratória de dados. Em um primeiro momento foi extraída a matriz de correlação linear entre variáveis dos indicadores IDSC e o índice do IDEB. Apresentadas as correlações, identifica-se uma correlação de $-0,34$ entre a variável do IDEB (SDG4\_16) e a variável que identifica baixa renda (SDG1\_4). Além disso, outro valor de correlação expressivo é o de $-0,41$ entre a variável de acesso ao saneamento básico (SDG6\_7) e baixa renda. A análise da matriz de correlação evidenciou que os indicadores socioeconômicos apresentam associação com o índice do IDEB, porém essa análise identifica apenas relações lineares, se faz necessário o uso de modelos para identificar relações não lineares. A Figura~\ref{fig:heatmapideb} apresenta a matriz de correlação das variáveis citadas.
+
+\begin{figure}[tbph]
+	\centering
+	\caption{Matriz de correlação linear entre indicadores do IDSC e o IDEB.}
+	\label{fig:heatmapideb}
+	\includegraphics[width=0.7\textwidth]{heat_map_ideb}
+	\\ \vspace{2pt} 
+	\footnotesize{Fonte: A autora, 2026.}
+\end{figure}
+
+Conforme observado na Figura~\ref{fig:scatterideb}, ao lado esquerdo do gráfico o cenário de menor vulnerabilidade socioeconômica apresenta maior dispersão de dados, isso indica que ao estabilizar a renda da população outros fatores possuem maior importância no desempenho do índice de qualidade da educação básica. A linha de tendência central tenta resumir o comportamento nacional, levando em conta todos os municípios presentes na base completa, mas não abrange dados de municípios que se comportam como \textit{outliers} positivos.
+
+
+\begin{figure}[tbph]
+	\centering
+	\caption{Gráfico de dispersão entre o indicador de Baixa Renda (eixo x) e o IDEB (eixo) com linha de tendência linear.}
+	\label{fig:scatterideb}
+	\includegraphics[width=0.8\textwidth]{scatter_ideb}
+	\\ \vspace{2pt} 
+	\footnotesize{Fonte: A autora, 2026.}
+\end{figure}
+
+A Análise Exploratória de Dados evidencia o comportamento da base de dados, demonstrando heterogeneidade dos dados dos municípios brasileiros. Esse comportamento demanda uma estratégia de segmentação da base, no caso deste estudo agrupamento da base de dados conforme perfil do município, levando em conta fatores socioeconômicos, PIB per capita, acesso à saúde e saneamento básico, infraestrutura, etc. 
+
+Após um resultado inicial da predição a base de dados será segmentada, serão aplicados modelos de agrupamento, de forma mais específica $K$-Means, Agrupamento Hierárquico e Agrupamento Espacial Baseado em Densidade para Aplicações com Ruído. A predição também será realiza nos subconjuntos, nessa etapa também é necessária a avaliação da precisão do resultado dos modelos conforme as métricas citadas anteriormente. Durante o treinamento dos modelos de árvore, a relevância inicial dos atributos será medida de por meio das métricas nativas de ganho e redução média de impureza (MDI), calculadas com base na redução da variância nos nós de decisão a cada divisão introduzida pelas variáveis do IDSC.
+
+Nas etapas subsequentes, ambos os resultados mais precisos do modelo de melhor desempenho aplicado na base completa dos dados e nas bases segmentadas, serão calculadas as métricas de importância de atributos nativas de modelos baseados em árvores de decisão como a Redução de Impureza. De forma complementar, a abordagem ainda intregrará o framework SHAP (\textit{Shapley Additive Explanations}). Ambas as técnicas serão empregadas para explicabilidade do modelo. Ao final do desenvolvimento da abordagem proposta, serão disponibilizados os fatores da infraestrutura municipal que mais penalizam ou auxiliam o fluxo e o aprendizado escolar.
+
+\chapter{Conclusão}
+
+Este trabalho apresenta uma abordagem de apoio à gestão educacional por meio da empregabilidade de técnicas de inteligência artificial e ciência de dados como modelos de aprendizado de máquina. Essa abordagem tem o intuito de proporcionar aos gestores o entendimento de fatores socioeconômicos e estruturais externos à sala de aula que afetam diretamente o aprendizado dos alunos e por consequência a qualidade da educação básica municipal. Para então servir de auxílio na elaboração de políticas públicas eficientes.
+
+Conforme detalhado nos trabalhos correlatos é perceptível a diferença da abordagem proposta com relação a abordagem apresentada nesse trabalho. A principal diferença é o uso de uma base de dados muito diferente da utilizada com microdados do INEP, nessa abordagem, utiliza-se a base de dados do Índice de Desenvolvimento Sustentável das Cidades, focada nos indicadores sustentáveis de cada município brasileiro. Além disso, a abordagem emprega modelos de aprendizado não supervisionado para agrupamento de dados conforme o mapeamento das características semelhantes, formando assim subconjuntos de dados conforme perfis socioestruturais dos municípios. A abordagem ainda se destaca ao trazer explicabilidade do modelo através da aplicação de técnicas como as métricas de importância de atributos e inteligência artificial explicável. 

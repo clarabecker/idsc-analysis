@@ -1,0 +1,171 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v<VERSION> }
+
+\bibitem[Barros, Santos e Souza 2024]{barros2024explicabilidade}
+\abntrefinfo{Barros, Santos e Souza}{Barros; Santos; Souza}{2024}
+{BARROS, A.~B.; SANTOS, C.~D.; SOUZA, E.~F. Análise de explicabilidade no
+  desempenho escolar utilizando {SHAP}.
+\textbf{Brazilian Journal of Development}, v.~10, n.~2, p. 4510--4528, 2024.}
+
+\bibitem[Bishop 2006]{bishop2006pattern}
+\abntrefinfo{Bishop}{Bishop}{2006}
+{BISHOP, Christopher~M. \textbf{Pattern Recognition and Machine Learning}. New
+  York: Springer, 2006.}
+
+\bibitem[Breiman 2001]{breiman2001}
+\abntrefinfo{Breiman}{Breiman}{2001}
+{BREIMAN, Leo. Random forests.
+\textbf{Machine Learning}, Springer, v.~45, n.~1, p. 5--32, 2001.}
+
+\bibitem[Chen e Guestrin 2016]{chen2016xgboost}
+\abntrefinfo{Chen e Guestrin}{Chen; Guestrin}{2016}
+{CHEN, Tianqi; GUESTRIN, Carlos. {XGBoost}: A scalable tree boosting system.
+  In:  \textbf{Proceedings of the 22nd ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}. San Francisco, California: ACM, 2016.
+  p. 785--794.}
+
+\bibitem[Ester et al. 1996]{ester1996density}
+\abntrefinfo{Ester et al.}{Ester et al.}{1996}
+{ESTER, Martin et al. A density-based algorithm for discovering clusters in
+  large spatial databases with noise. In:  \textbf{Proceedings of the Second
+  International Conference on Knowledge Discovery and Data Mining (KDD)}.
+  Portland, Oregon: [s.n.], 1996. p. 226--231.}
+
+\bibitem[Feitosa 2025]{feitosa2023aplicacoes}
+\abntrefinfo{Feitosa}{Feitosa}{2025}
+{FEITOSA, T.~C. Aplicações de aprendizagem de máquina com dados do {INEP}:
+  Uma revisão de literatura. In:  SOCIEDADE BRASILEIRA DE COMPUTAçãO (SBC).
+  \textbf{Anais do XXIV Congresso Brasileiro de Informática na Educação
+  (CBIE)}. Porto Alegre, RS, 2025. p. 120--131. Dispon{\'\i}vel em:
+  \url{https://sol.sbc.org.br/index.php/ctrle/article/view/40463}.}
+
+\bibitem[Friedman 2001]{friedman2001}
+\abntrefinfo{Friedman}{Friedman}{2001}
+{FRIEDMAN, Jerome~H. Greedy function approximation: a gradient boosting
+  machine.
+\textbf{The Annals of Statistics}, JSTOR, v.~29, n.~5, p. 1189--1232, 2001.}
+
+\bibitem[Jain 2010]{jain2010data}
+\abntrefinfo{Jain}{Jain}{2010}
+{JAIN, Anil~K. Data clustering: 50 years beyond k-means.
+\textbf{Pattern Recognition Letters}, Elsevier, v.~31, n.~8, p. 651--666,
+  2010.}
+
+\bibitem[James et al. 2013]{james2013introduction}
+\abntrefinfo{James et al.}{James et al.}{2013}
+{JAMES, Gareth et al. \textbf{An Introduction to Statistical Learning: with
+  Applications in R}. New York: Springer, 2013.}
+
+\bibitem[Ke et al. 2017]{ke2017lightgbm}
+\abntrefinfo{Ke et al.}{Ke et al.}{2017}
+{KE, Guolin et al. Lightgbm: A highly efficient gradient boosting decision
+  tree. In:  \textbf{Advances in Neural Information Processing Systems 30 (NIPS
+  2017)}. [S.l.]: Curran Associates, Inc., 2017. p. 3146--3154.}
+
+\bibitem[Lloyd 1982]{lloyd1982least}
+\abntrefinfo{Lloyd}{Lloyd}{1982}
+{LLOYD, Stuart. Least squares quantization in pcm.
+\textbf{IEEE Transactions on Information Theory}, v.~28, n.~2, p. 129--137,
+  1982.}
+
+\bibitem[Lundberg et al. 2020]{lundberg2020local2global}
+\abntrefinfo{Lundberg et al.}{Lundberg et al.}{2020}
+{LUNDBERG, Scott~M. et al. From local explanations to global understanding with
+  explainable ai for trees.
+\textbf{Nature Machine Intelligence}, Nature Publishing Group, v.~2, n.~1, p.
+  56--67, 2020.}
+
+\bibitem[Lundberg e Lee 2017]{lundberg2017}
+\abntrefinfo{Lundberg e Lee}{Lundberg; Lee}{2017}
+{LUNDBERG, Scott~M.; LEE, Su-In. A unified approach to interpreting model
+  predictions. In:  \textbf{Advances in Neural Information Processing Systems
+  30 (NIPS 2017)}. Long Beach, California: [s.n.], 2017. p. 4765--4774.}
+
+\bibitem[Mitchell 1997]{mitchell1997machine}
+\abntrefinfo{Mitchell}{Mitchell}{1997}
+{MITCHELL, Tom~M. \textbf{Machine Learning}. New York: McGraw-Hill, 1997.}
+
+\bibitem[Murphy 2012]{murphy2012machine}
+\abntrefinfo{Murphy}{Murphy}{2012}
+{MURPHY, Kevin~P. \textbf{Machine Learning: A Probabilistic Perspective}.
+  Cambridge: MIT Press, 2012.}
+
+\bibitem[Pinto 2021]{pinto2021modelo}
+\abntrefinfo{Pinto}{Pinto}{2021}
+{PINTO, Glevson da~Silva.
+\textbf{Modelo de análise e predição para identificação dos fatores que
+  influenciam o desempenho escolar na rede de ensino básico: estudo de caso em
+  escolas municipais de Alagoas}.
+Disserta\c{c}\~{a}o (Dissertação de Mestrado) --- Universidade Federal de
+  Alagoas (UFAL), Maceió, AL, 2021.
+Dispon{\'\i}vel em: \url{https://www.repositorio.ufal.br/handle/riufal/7782}.}
+
+\bibitem[Prokhorenkova et al. 2018]{prokhorenkova2018catboost}
+\abntrefinfo{Prokhorenkova et al.}{Prokhorenkova et al.}{2018}
+{PROKHORENKOVA, Liudmila et al. Catboost: unbiased boosting with categorical
+  features. In:  \textbf{Advances in Neural Information Processing Systems 31
+  (NeurIPS 2018)}. [S.l.]: Curran Associates, Inc., 2018. p. 6639--6649.}
+
+\bibitem[Rokach e Maimon 2005]{rokach2005data}
+\abntrefinfo{Rokach e Maimon}{Rokach; Maimon}{2005}
+{ROKACH, Lior; MAIMON, Oded. \textbf{Data mining with decision trees: theory
+  and applications}. Singapore: World Scientific, 2005.}
+
+\bibitem[Santos e Oliveira 2023]{santos2023predicao}
+\abntrefinfo{Santos e Oliveira}{Santos; Oliveira}{2023}
+{SANTOS, J.~M.; OLIVEIRA, R.~A. Predição numérica do {IDEB} através de
+  modelos de regressão.
+\textbf{Revista Brasileira de Estudos Pedagógicos}, v.~104, p. e5320, 2023.}
+
+\bibitem[Shapley 1953]{shapley1953}
+\abntrefinfo{Shapley}{Shapley}{1953}
+{SHAPLEY, Lloyd~S. A value for n-person games. In:  \textbf{Contributions to
+  the Theory of Games (AM-28)}. Princeton: Princeton University Press, 1953.
+  v.~2, p. 307--318.}
+
+\bibitem[Silva 2022]{silva2022mineracao}
+\abntrefinfo{Silva}{Silva}{2022}
+{SILVA, Ivonaldo Vicente~da.
+\textbf{Mineração de Dados para Descoberta de Fatores Preditivos do {IDEB}}.
+Tese (Tese de Doutorado) --- Universidade Paulista (UNIP), São Paulo, SP,
+  2022.
+Dispon{\'\i}vel em:
+  \url{https://repositorio.unip.br/engenharia-dissertacoes-teses/mineracao-de-dados-para-descoberta-de-fatores-preditivos-de-sucesso-em-avaliacoes-de-larga-escala-dos-alunos-do-ensino-medio/}.}
+
+\bibitem[Soares et al. 2020]{soares2020minerando}
+\abntrefinfo{Soares et al.}{Soares et al.}{2020}
+{SOARES, Raimundo de~Castro et al. Minerando dados para entender os fatores de
+  influência da qualidade educacional do maranhão.
+\textbf{Revista Brasileira de Informática na Educação (RBIE)}, v.~28, p.
+  854--878, 2020.
+Dispon{\'\i}vel em:
+  \url{https://journals-sol.sbc.org.br/index.php/rbie/article/view/2831}.}
+
+\bibitem[Sustentáveis 2023]{idscbr2023}
+\abntrefinfo{Sustentáveis}{Sustentáveis}{2023}
+{SUSTENTáVEIS, Instituto~Cidades. Índice de desenvolvimento sustentável das
+  cidades - brasil (idsc-br).
+2023.
+Dispon{\'\i}vel em: \url{https://idsc.cidadessustentaveis.org.br/}.}
+
+\bibitem[Teixeira 2024]{inep_ideb}
+\abntrefinfo{Teixeira}{Teixeira}{2024}
+{TEIXEIRA, Instituto~Nacional de~Estudos~e Pesquisas Educacionais~Anísio.
+  Índice de desenvolvimento da educação básica (ideb).
+2024.
+Dispon{\'\i}vel em:
+  \url{https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/ideb}.}
+
+\bibitem[Unidas 2015]{onu2015agenda2030}
+\abntrefinfo{Unidas}{Unidas}{2015}
+{UNIDAS, Organização das Nações. Transformando nosso mundo: A agenda 2030
+  para o desenvolvimento sustentável.
+2015.
+Dispon{\'\i}vel em:
+  \url{https://brasil.un.org/sites/default/files/2020-09/agenda2030-pt-br.pdf}.}
+
+\end{thebibliography}

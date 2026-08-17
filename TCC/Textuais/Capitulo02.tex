@@ -1,0 +1,110 @@
+\chapter{Fundamentação Teórica}
+
+\section{Aprendizado de Máquina}
+O Aprendizado de Máquina (\textit{Machine Learning}) é o ramo da Inteligência Artificial focado no desenvolvimento de algoritmos com capacidade de identificar padrões em grandes volumes de dados, com o objetivo de predizer o resultado de um atributo específico. Segundo a definição clássica \cite{mitchell1997machine}, o aprendizado de máquina permite que sistemas melhorem seu desempenho com base na experiência. No estudo apresentado, esses algoritmos são empregados para modelar a relação entre os índices do IDSC e o índice de avaliação do IDEB, sendo responsáveis por estimar a relação matemática entre as variáveis.
+
+\subsection{Paradigmas de Aprendizado de Máquina}
+A literatura divide as abordagens de aprendizado de máquina em categorias formadas de acordo com a presença ou ausência de uma variável resposta durante o treinamento. As duas categorias abrangidas neste estudo são o aprendizado supervisionado e o não supervisionado.
+
+O aprendizado de máquina supervisionado, de acordo com \cite{murphy2012machine}, consiste no mapeamento de uma função que conecta um vetor de características de entrada $X$ a uma saída esperada $Y$, utilizando um conjunto de dados previamente rotulado. O objetivo é aproximar uma função $\hat{f}(X) \approx Y$ que minimize o erro. O processo envolve a divisão dos dados em dois subconjuntos: treino e teste. O conjunto de treino é responsável pelo aprendizado por meio da identificação de padrões e o de teste é responsável por validar a eficácia do modelo, observando dados desconhecidos na fase de treinamento para avaliar seu resultado. Então, o algoritmo aprende a função que mapeia entradas em saídas por meio dos dados rotulados, aprendendo a relação entre as variáveis de entrada e de resposta.
+
+Já o aprendizado não supervisionado, segundo \cite{bishop2006pattern}, foca na identificação de estruturas e correlações latentes em bases de dados que não possuem um alvo predefinido. Sem rótulos para guiar o treinamento, os algoritmos operam a partir de propriedades matemáticas dos dados, como proximidade espacial e densidade. Nesse estudo, esse paradigma é empregado no agrupamento dos municípios em perfis conforme suas características. 
+
+\subsection{Técnicas de Agrupamento (\textit{Clustering})}
+O agrupamento é a principal tarefa do paradigma não supervisionado. Seu propósito é organizar um conjunto de dados em subconjuntos (ou \textit{clusters}) de forma que os elementos de um mesmo grupo guardem alta similaridade entre si, enquanto elementos de grupos distintos sejam o mais dissimilares possível \cite{jain2010data}. No campo das políticas públicas, essa técnica evita análises generalistas e revela quais municípios compartilham desafios estruturais parecidos.
+
+\subsection{K-Means}
+
+O algoritmo \textit{K-Means} funciona através de um processo iterativo de atribuição e atualização controlado pelo parâmetro $K$. A distribuição dos dados ocorre conforme a proximidade de cada ponto em relação ao centroide mais próximo. De acordo com \cite{lloyd1982least}, o algoritmo é baseado no particionamento em $K$ grupos distintos ao minimizar a soma dos quadrados das distâncias, comumente a distância euclidiana entre cada ponto e o centro de gravidade (centroide) do seu respectivo grupo. Após a atribuição do elemento ao grupo conforme a proximidade com relação ao centroide, este é recalculado por meio da média aritmética de todos os elementos associados ao grupo. Essas etapas se repetem até que os centroides estabilizem. 
+
+Considerando um conjunto de dados $X = \{x_1, x_2, \dots, x_n\} \in \mathbb{R}^d$, em que $d$ representa a dimensionalidade dos atributos, o algoritmo tem como objetivo encontrar um particionamento $S = \{S_1, S_2, \dots, S_K\}$ que visa minimizar a variância interna dos grupos. Esse problema busca a minimização da função de custo baseada na soma dos quadrados intra-cluster.
+
+O algoritmo de minimização opera em duas etapas a cada iteração: atribuição e atualização. A primeira tem como objetivo vincular cada elemento ao centroide mais próximo, calculado através da distância euclidiana. A segunda etapa, de atualização, recalcula os vetores de centroide de cada grupo, realizando o cálculo da média aritmética de todos os elementos pertencentes ao subconjunto do centroide. Esse processo, eventualmente, converge para um ótimo local.
+
+\subsection{Agrupamento Hierárquico}
+
+Diferente do particionamento direto, o Agrupamento Hierárquico se caracteriza como uma abordagem aglomerativa, criando uma estrutura em árvore denominada dendrograma, permitindo visualizar relações de proximidade em diferentes níveis de granularidade. Conforme \cite{rokach2005data}, o algoritmo inicia como um grupo individual e os funde sucessivamente com base na proximidade. Na abordagem aglomerativa adotada neste trabalho, o algoritmo inicia o processamento tratando cada elemento como um grupo individual. Rodada a rodada, os pares de \textit{clusters} mais próximos são fundidos com base em uma métrica de distância e em um critério de ligação, até que todas as observações estejam unidas em um único bloco.
+
+Para determinar quais elementos devem ser atribuídos aos grupos a cada etapa, o algoritmo calcula a proximidade a cada agrupamento. Um dos métodos mais apresentados na literatura para dados socioeconômicos é o método de Ward. Em vez de medir a distância simples entre pontos, o critério de Ward busca minimizar o aumento da variância interna, ou seja, a soma dos quadrados dos erros que ocorre quando dois grupos são combinados.
+
+\subsection{Agrupamento Espacial Baseado em Densidade para Aplicações com Ruído (DBSCAN)}
+
+O algoritmo \textit{Density-Based Spatial Clustering of Applications with Noise} (DBSCAN) é baseado em densidade. Proposto por \citeshort{ester1996density}, o algoritmo adota uma lógica diferente ao definir grupos por meio da densidade local de pontos. O algoritmo exige a configuração de dois parâmetros básicos: o raio de vizinhança ($\epsilon$) e o número mínimo de pontos para formar uma região densa ($MinPts$). A partir desses parâmetros, o algoritmo classifica os dados em três tipos: pontos centrais, pontos de borda e ruídos. Os pontos centrais são elementos que contêm pelo menos $MinPts$ dentro do raio $\epsilon$; os pontos de borda são caracterizados por elementos que não possuem o mínimo de vizinhos, mas estão dentro do raio de alcance de um ponto central; e os ruídos, que são pontos isolados que não atendem aos critérios anteriores. Dessa forma, o algoritmo isola anomalias (\textit{outliers}), dados fora da distribuição normal que, nesse caso, poderiam distorcer o resultado da predição.
+
+O algoritmo funciona por meio de relações de proximidade espacial dentro de um espaço. A $\epsilon$-vizinhança de um ponto $p$, representada por $N_{\epsilon}(p)$, define o conjunto de pontos presentes dentro do raio de distância $\epsilon$, calculada geralmente por meio da distância euclidiana:
+\begin{equation}
+	N_{\epsilon}(p) = \{q \in D \mid \text{dist}(p, q) \le \epsilon\}
+\end{equation}
+
+A partir desta definição, o algoritmo percorre os grupos juntando pontos que cumprem os requisitos de densidade. Um ponto é considerado diretamente alcançável por densidade se estiver dentro do seu raio de vizinhança e o ponto de origem for central. A partir disso, a alcançabilidade ocorre quando existe uma cadeia sequencial de pontos interconectados ligando um elemento ao outro. Então, dois pontos são considerados conectados por densidade quando compartilham um mesmo ponto central de origem em comum, o que permite ao algoritmo expandir o grupo de forma contínua por áreas densas e isolar os elementos que não se conectam a nenhum grupo.
+
+\section{Modelos de Regressão e Predição}
+
+Modelos de regressão, como técnicas de aprendizado de máquina supervisionado, buscam aproximar uma função contínua $f(X)$ capaz de mapear variáveis preditoras $X$ em uma variável alvo numérica $Y$. Neste estudo, a matriz $X$ guarda os indicadores do IDSC e $Y$ armazena a nota contínua do IDEB.
+
+\subsection{Regressão Linear}
+
+A Regressão Linear é o modelo clássico para estimativas numéricas \cite{james2013introduction}. Sua premissa é modelar a variável dependente através de uma combinação linear das variáveis independentes, somada a um termo de erro:
+\begin{equation}
+	Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_n X_n + \epsilon
+\end{equation}
+
+Onde $\beta_0$ é o intercepto e os demais coeficientes $\beta_i$ representam os pesos de cada atributo na predição. O ajuste ocorre pelo método dos mínimos quadrados ordinários, que busca os parâmetros capazes de minimizar a distância entre os valores reais e as estimativas geradas. Apesar de não capturar relações não lineares, esse modelo funciona como uma linha de base (\textit{baseline}) para comparar com os demais modelos.
+
+\subsection{Random Forest}
+
+O modelo \textit{Random Forest}, proposto por \citeshort{breiman2001}, evolui o modelo de árvores de decisão. O modelo cria árvores de decisão independentes; cada árvore opera em um subespaço estocástico, ou seja, apenas uma parte dos dados e uma parte das variáveis. Além disso, cada árvore é treinada com uma amostra diferente dos dados originais, selecionada por amostragem com reposição. Essa técnica garante que cada árvore de decisão aprenda especificidades diferentes do conjunto total. 
+
+O algoritmo usa duas estratégias de sorteio: a amostragem com reposição (\textit{Bootstrap}), que significa que cada árvore é treinada com uma amostra diferente extraída do banco de dados, e o subespaço aleatório de atributos, onde, em cada divisão de nós da árvore, a escolha do melhor ponto de corte fica restrita a um grupo sorteado de variáveis, e não a todas. O resultado final do algoritmo \textit{Random Forest} para regressão é a média das predições de todas as árvores.
+
+O processo de construção de cada árvore ocorre de forma recursiva, dividindo os dados em nós hierárquicos. Em tarefas de regressão, o algoritmo determina o ponto de corte em cada nó avaliando qual divisão resulta na maior redução da variância dos dados entre os nós filhos criados. Esse cálculo mede a distância dos valores reais em relação à média local, garantindo que os grupos resultantes sejam o mais homogêneos possível. Ao final do treinamento do modelo, o algoritmo consolida o aprendizado coletando as estimativas numéricas independentes de cada árvore e calculando a média aritmética para gerar a predição final.
+
+\subsection{Gradient Boosting}
+
+O modelo \textit{Gradient Boosting Decision Trees} treina árvores de decisão de forma sequencial, se diferenciando do modelo \textit{Random Forest}, que treina árvores de decisão em paralelo. Conforme \cite{friedman2001}, o princípio do modelo é a otimização de uma função de perda através de um ajuste iterativo, onde cada árvore é treinada para prever resíduos das árvores anteriores. Existem três variações que evoluem o algoritmo:
+
+\textbf{XGBoost (\textit{Extreme Gradient Boosting}):} Proposto por \citeshort{chen2016xgboost}, adiciona dois termos de regularização ($L_1$ e $L_2$) à função de perda para conter o crescimento exagerado das árvores e reduzir o sobreajuste. Destaca-se ao incorporar técnicas de otimização que aumentam a eficiência computacional e contribuem para a construção de um modelo mais robusto.
+
+\textbf{LightGBM (\textit{Light Gradient Boosting Machine}):} Proposto por \citeshort{ke2017lightgbm} no ecossistema da Microsoft, adota o crescimento das árvores focado nas folhas. Essa estratégia divide o nó que traz a maior redução de erro global, independentemente do nível da árvore.
+
+\textbf{CatBoost (\textit{Categorical Boosting}):} Desenvolvido por \citeshort{prokhorenkova2018catboost} na empresa Yandex, possui técnicas matemáticas complexas para o tratamento de variáveis categóricas no treinamento, prevenindo o vazamento de dados (\textit{target leakage}).
+
+\subsection{Métricas de Avaliação de Modelos de Regressão}
+Para a validação estatística e a comparação dos modelos preditivos, foram adotadas três métricas:
+
+O Erro Médio Absoluto ($MAE$), que calcula a média das distâncias absolutas entre as predições e os valores reais, medindo a magnitude dos erros em uma escala linear, segundo a equação matemática:
+\begin{equation}
+	MAE = \frac{1}{n} \sum_{i=1}^{n} |Y_i - \hat{Y}_i|
+\end{equation}
+
+A Raiz do Erro Quadrático Médio ($RMSE$), que calcula a raiz quadrada da média dos erros elevados ao quadrado. Pelo peso da potenciação, o $RMSE$ é mais sensível a grandes desvios, ajudando a detectar se o modelo está cometendo erros em elementos específicos, segundo a fórmula matemática:
+\begin{equation}
+	RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2}
+\end{equation}
+
+O Coeficiente de Determinação ($R^2$) indica a proporção da variação total da variável alvo que o modelo conseguiu explicar a variabilidade observada na variável alvo, funcionando como uma nota geral de ajuste do algoritmo. O cálculo é dado pela fórmula matemática:
+\begin{equation}
+	R^2 = 1 - \frac{\sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^{n} (Y_i - \bar{Y})^2}
+\end{equation}
+
+Onde $Y_i$ é o valor real, $\hat{Y}_i$ é a predição, $\bar{Y}$ representa a média dos valores reais e $n$ é o total de observações.
+
+\subsection{Métricas Nativas de Importância Baseadas em Árvores}
+
+Os modelos baseados em árvores de decisão possuem indicadores nativos com o objetivo de quantificar a relevância das variáveis preditoras. Em cenários com a aplicação de modelos de regressão, a principal técnica empregada é a redução de impureza, do inglês \textit{Mean Decrease in Impurity} (MDI). Essa técnica aplica um cálculo baseado na redução da variância presentes nos nós de decisão cada vez que um atributo é elegido para dividir os dados. O grau de importância da variável é o somatório ponderado dos ganhos de pureza, calculado ao longo das ramificações da árvore. 
+
+Adicionalmente, modelos \textit{Gradient Boosting} possuem três métricas adicionais para o cálculo da importância do atributo. A primeira é o ganho, que representa a relevância do atributo para melhoria da precisão do resultado do modelo; a métrica é semelhante ao MDI e indica quanto uma função de perda, como o erro quadrático médio, caiu ao introduzir uma divisão baseada na variável avaliada. A segunda é denominada frequência, que contabiliza o número de vezes em que o atributo foi selecionado para realizar pontos de corte ao longo das árvores. Por fim, a última métrica é a cobertura, que mede o número de observações que passaram pelo nó associado à variável observada. 
+
+\subsection{Valores SHAP (\textit{Shapley Additive Explanations})}
+
+A técnica de inteligência artificial explicável SHAP (\textit{Shapley Additive Explanations}), inspirada na Teoria dos Jogos Cooperativos \cite{shapley1953}, atribui um Valor de Shapley a cada variável. Esse valor representa a contribuição marginal média de uma variável para a predição do modelo. Diferente das métricas de importância mais tradicionais, essa técnica oferece propriedades matemáticas de consistência e localidade, o que permite tanto uma visão global do comportamento do modelo quanto uma justificativa mais detalhada para predições isoladas \cite{lundberg2017}.
+
+Neste trabalho, utiliza-se a variação \textit{TreeSHAP}, uma versão otimizada para modelos de árvores que calcula esses valores explorando as ramificações dos nós em tempo reduzido \cite{lundberg2020local2global}. Ao apontar tanto a força quanto a direção do impacto de cada indicador do IDSC, o SHAP enriquece o diagnóstico para a gestão pública, mostrando se um avanço em saneamento, saúde ou renda está melhorando o valor do índice do IDEB ou piorando, seja na visão nacional ou dentro de cada perfil municipal agrupado.
+
+\section{Trabalhos Correlatos}
+
+Conforme revisão bibliográfica realizada, são encontrados diversos estudos com aplicações de algoritmos de aprendizado de máquina em microdados do Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP) para predição do Índice de Desenvolvimento da Educação Básica (IDEB) e para identificação de quais fatores são determinantes. Em uma escala regional, Soares et al. \cite{soares2020minerando} realizam a predição por meio da aplicação de Árvores de Decisão em dados de escolas do estado do Maranhão; o estudo identificou que a escolaridade dos pais foi a variável com maior influência no modelo. Ademais, \cite{pinto2021modelo} adotou técnicas de seleção de atributos nos dados de Alagoas, com o objetivo de reduzir o ruído da base de dados, isolando os dados que realmente impactavam a gestão municipal. Outra abordagem adotada por Silva \cite{silva2022mineracao} foi o processo KDD (\textit{Knowledge Discovery in Databases}), empregado para projetar cenários preventivos. O autor argumenta que a ciência de dados deve ser aplicada antes do fechamento dos ciclos de avaliação do governo.
+
+Outro estudo, agora em escala nacional, volta-se para o mapeamento de técnicas e modelos mais robustos. A revisão sistemática da literatura de Feitosa \cite{feitosa2023aplicacoes} documentou os métodos mais adotados nas pesquisas do país, apontando modelos como \textit{Random Forest}, SVM e \textit{Árvores de Decisão} como os algoritmos mais aplicados e com melhor desempenho nessa área de pesquisa. Ainda com a aplicação de modelos baseados em árvores, Barros et al. \cite{barros2024explicabilidade} combinaram \textit{Gradient Boosting} com a abordagem SHAP (XAI) para adicionar interpretabilidade ao modelo, medindo o impacto de atributos com distorção entre a idade e série do aluno ou falta de laboratórios nas escolas. Por fim, Santos e Oliveira \cite{santos2023predicao} empregaram modelo de rede neural \textit{Multilayer Perceptron}, Regressão linear e $K$-NN. Os autores chegaram à conclusão de que o uso dos microdados disponibilizados pelo Censo Escolar resulta em predições mais estáveis do que os dados brutos do Sistema de Avaliação da Educação Básica. 
+
+O que diferencia esse trabalho da linha de pesquisa dos estudos presentes na literatura é o foco em dados externos ao ambiente escolar para predição da qualidade escolar da educação básica. Enquanto a maior parte das pesquisas explora exclusivamente os dados disponibilizados pelo INEP, o presente estudo avalia o impacto direto dos indicadores do Índice de Desenvolvimento Sustentável das Cidades (IDSC) sobre a nota do IDEB. Além disso, a metodologia integra técnicas de agrupamento para definir os perfis de município, o que permite segmentar a base de dados e entender como os fatores afetam cada subconjunto de dados. 
