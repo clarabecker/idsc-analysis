@@ -1,106 +1,84 @@
-This is BibTeX, Version 0.99e
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: abntex2-model_UDESC_2024.aux
-Reallocating 'name_of_file' (item size: 1) to 21 items.
 A level-1 auxiliary file: PreTextuais/Capa.aux
-Reallocating 'name_of_file' (item size: 1) to 29 items.
 A level-1 auxiliary file: PreTextuais/FolhadeRosto.aux
-Reallocating 'name_of_file' (item size: 1) to 35 items.
 A level-1 auxiliary file: PreTextuais/FichaCatalografica.aux
-Reallocating 'name_of_file' (item size: 1) to 23 items.
 A level-1 auxiliary file: PreTextuais/Errata.aux
-Reallocating 'name_of_file' (item size: 1) to 33 items.
 A level-1 auxiliary file: PreTextuais/FolhadeAprovacao.aux
-Reallocating 'name_of_file' (item size: 1) to 28 items.
 A level-1 auxiliary file: PreTextuais/Dedicatoria.aux
-Reallocating 'name_of_file' (item size: 1) to 31 items.
 A level-1 auxiliary file: PreTextuais/Agradecimentos.aux
-Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: PreTextuais/Epigrafe.aux
-Reallocating 'name_of_file' (item size: 1) to 23 items.
 A level-1 auxiliary file: PreTextuais/Resumo.aux
-Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: PreTextuais/Abstract.aux
-Reallocating 'name_of_file' (item size: 1) to 23 items.
 A level-1 auxiliary file: PreTextuais/Listas.aux
-Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: PreTextuais/Sumario.aux
-Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: Textuais/Capitulo01.aux
-Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: Textuais/Capitulo02.aux
-Reallocating 'name_of_file' (item size: 1) to 24 items.
 A level-1 auxiliary file: Textuais/Capitulo03.aux
-Reallocating 'name_of_file' (item size: 1) to 27 items.
 The style file: abntex2-alf_revNBR2023.bst.bst
-Reallocating 'name_of_file' (item size: 1) to 16 items.
-Reallocating 'name_of_file' (item size: 1) to 23 items.
-Reallocating 'name_of_file' (item size: 1) to 26 items.
 A level-1 auxiliary file: PosTextuais/Glossario.aux
-Reallocating 'name_of_file' (item size: 1) to 26 items.
 A level-1 auxiliary file: PosTextuais/Apendices.aux
-Reallocating 'name_of_file' (item size: 1) to 23 items.
 A level-1 auxiliary file: PosTextuais/Anexos.aux
-Reallocating 'name_of_file' (item size: 1) to 32 items.
 A level-1 auxiliary file: PosTextuais/IndiceRemissivo.aux
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: abntex2-ref_UDESC_2020.bib
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'glb_str_end' (item size: 4) to 20 items.
-Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
-Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 | Estilo bibliográfico abntex2-alf.bst versão v<VERSION>           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 28 entries,
+You've used 22 entries,
             6714 wiz_defined-function locations,
-            1383 strings with 14876 characters,
-and the built_in function-call counts, 31881 in all, are:
-= -- 3405
-> -- 644
-< -- 593
-+ -- 842
-- -- 197
-* -- 2027
-:= -- 4011
-add.period$ -- 97
-call.type$ -- 28
-change.case$ -- 207
-chr.to.int$ -- 53
-cite$ -- 25
-duplicate$ -- 2694
-empty$ -- 1737
-format.name$ -- 946
-if$ -- 6775
+            1348 strings with 13820 characters,
+and the built_in function-call counts, 26349 in all, are:
+= -- 2973
+> -- 440
+< -- 584
++ -- 761
+- -- 136
+* -- 1620
+:= -- 3300
+add.period$ -- 73
+call.type$ -- 22
+change.case$ -- 149
+chr.to.int$ -- 41
+cite$ -- 19
+duplicate$ -- 2425
+empty$ -- 1298
+format.name$ -- 646
+if$ -- 5434
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 471
-newline$ -- 129
-num.names$ -- 125
-pop$ -- 583
+missing$ -- 360
+newline$ -- 104
+num.names$ -- 95
+pop$ -- 435
 preamble$ -- 1
-purify$ -- 102
+purify$ -- 76
 quote$ -- 0
-skip$ -- 2929
+skip$ -- 2621
 stack$ -- 1
-substring$ -- 1538
-swap$ -- 1061
-text.length$ -- 37
+substring$ -- 1302
+swap$ -- 925
+text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 11
+type$ -- 8
 warning$ -- 0
-while$ -- 202
+while$ -- 154
 width$ -- 0
-write$ -- 408
+write$ -- 314

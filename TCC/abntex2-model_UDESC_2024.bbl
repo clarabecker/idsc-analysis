@@ -28,13 +28,6 @@
   Knowledge Discovery and Data Mining}. San Francisco, California: ACM, 2016.
   p. 785--794.}
 
-\bibitem[Ester et al. 1996]{ester1996density}
-\abntrefinfo{Ester et al.}{Ester et al.}{1996}
-{ESTER, Martin et al. A density-based algorithm for discovering clusters in
-  large spatial databases with noise. In:  \textbf{Proceedings of the Second
-  International Conference on Knowledge Discovery and Data Mining (KDD)}.
-  Portland, Oregon: [s.n.], 1996. p. 226--231.}
-
 \bibitem[Feitosa 2025]{feitosa2023aplicacoes}
 \abntrefinfo{Feitosa}{Feitosa}{2025}
 {FEITOSA, T.~C. Aplicações de aprendizagem de máquina com dados do {INEP}:
@@ -49,41 +42,18 @@
   machine.
 \textbf{The Annals of Statistics}, JSTOR, v.~29, n.~5, p. 1189--1232, 2001.}
 
-\bibitem[Jain 2010]{jain2010data}
-\abntrefinfo{Jain}{Jain}{2010}
-{JAIN, Anil~K. Data clustering: 50 years beyond k-means.
-\textbf{Pattern Recognition Letters}, Elsevier, v.~31, n.~8, p. 651--666,
-  2010.}
-
-\bibitem[James et al. 2013]{james2013introduction}
-\abntrefinfo{James et al.}{James et al.}{2013}
-{JAMES, Gareth et al. \textbf{An Introduction to Statistical Learning: with
-  Applications in R}. New York: Springer, 2013.}
+\bibitem[Hotelling 1933]{hotelling1933analysis}
+\abntrefinfo{Hotelling}{Hotelling}{1933}
+{HOTELLING, Harold. Analysis of a complex of statistical variables into
+  principal components.
+\textbf{Journal of Educational Psychology}, Warwick \& York, v.~24, n.~6, p.
+  417--441, 1933.}
 
 \bibitem[Ke et al. 2017]{ke2017lightgbm}
 \abntrefinfo{Ke et al.}{Ke et al.}{2017}
 {KE, Guolin et al. Lightgbm: A highly efficient gradient boosting decision
   tree. In:  \textbf{Advances in Neural Information Processing Systems 30 (NIPS
   2017)}. [S.l.]: Curran Associates, Inc., 2017. p. 3146--3154.}
-
-\bibitem[Lloyd 1982]{lloyd1982least}
-\abntrefinfo{Lloyd}{Lloyd}{1982}
-{LLOYD, Stuart. Least squares quantization in pcm.
-\textbf{IEEE Transactions on Information Theory}, v.~28, n.~2, p. 129--137,
-  1982.}
-
-\bibitem[Lundberg et al. 2020]{lundberg2020local2global}
-\abntrefinfo{Lundberg et al.}{Lundberg et al.}{2020}
-{LUNDBERG, Scott~M. et al. From local explanations to global understanding with
-  explainable ai for trees.
-\textbf{Nature Machine Intelligence}, Nature Publishing Group, v.~2, n.~1, p.
-  56--67, 2020.}
-
-\bibitem[Lundberg e Lee 2017]{lundberg2017}
-\abntrefinfo{Lundberg e Lee}{Lundberg; Lee}{2017}
-{LUNDBERG, Scott~M.; LEE, Su-In. A unified approach to interpreting model
-  predictions. In:  \textbf{Advances in Neural Information Processing Systems
-  30 (NIPS 2017)}. Long Beach, California: [s.n.], 2017. p. 4765--4774.}
 
 \bibitem[Mitchell 1997]{mitchell1997machine}
 \abntrefinfo{Mitchell}{Mitchell}{1997}
@@ -93,6 +63,13 @@
 \abntrefinfo{Murphy}{Murphy}{2012}
 {MURPHY, Kevin~P. \textbf{Machine Learning: A Probabilistic Perspective}.
   Cambridge: MIT Press, 2012.}
+
+\bibitem[Pearson 1901]{pearson1901lines}
+\abntrefinfo{Pearson}{Pearson}{1901}
+{PEARSON, Karl. On lines and planes of closest fit to systems of points in
+  space.
+\textbf{The London, Edinburgh, and Dublin Philosophical Magazine and Journal of
+  Science}, Taylor \& Francis, v.~2, n.~11, p. 559--572, 1901.}
 
 \bibitem[Pinto 2021]{pinto2021modelo}
 \abntrefinfo{Pinto}{Pinto}{2021}
@@ -110,22 +87,11 @@ Dispon{\'\i}vel em: \url{https://www.repositorio.ufal.br/handle/riufal/7782}.}
   features. In:  \textbf{Advances in Neural Information Processing Systems 31
   (NeurIPS 2018)}. [S.l.]: Curran Associates, Inc., 2018. p. 6639--6649.}
 
-\bibitem[Rokach e Maimon 2005]{rokach2005data}
-\abntrefinfo{Rokach e Maimon}{Rokach; Maimon}{2005}
-{ROKACH, Lior; MAIMON, Oded. \textbf{Data mining with decision trees: theory
-  and applications}. Singapore: World Scientific, 2005.}
-
 \bibitem[Santos e Oliveira 2023]{santos2023predicao}
 \abntrefinfo{Santos e Oliveira}{Santos; Oliveira}{2023}
 {SANTOS, J.~M.; OLIVEIRA, R.~A. Predição numérica do {IDEB} através de
   modelos de regressão.
 \textbf{Revista Brasileira de Estudos Pedagógicos}, v.~104, p. e5320, 2023.}
-
-\bibitem[Shapley 1953]{shapley1953}
-\abntrefinfo{Shapley}{Shapley}{1953}
-{SHAPLEY, Lloyd~S. A value for n-person games. In:  \textbf{Contributions to
-  the Theory of Games (AM-28)}. Princeton: Princeton University Press, 1953.
-  v.~2, p. 307--318.}
 
 \bibitem[Silva 2022]{silva2022mineracao}
 \abntrefinfo{Silva}{Silva}{2022}

@@ -1,0 +1,16 @@
+Alterações realizadas:
+
+Critério de classificação da nota do IDEB. 
+
+A classificação que categoriza o aprendizado nos níveis Insuficiente / Abaixo do Básico, Básico, Adequado e Avançado não é do IDEB em si, mas da nota do SAEB (que é o componente de desempenho do IDEB).
+
+Documento/Artigo Fonte Primário:
+
+Inep / MEC (2020): Relatório do Saeb 2019: Aprendizagem dos estudantes. Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira.
+
+Todos Pela Educação (2008 / Relatórios "De Olho nas Metas"): O movimento Todos Pela Educação (em parceria com pesquisadores do Inep) definiu quais pontuações na escala SAEB representavam a "aprendizagem adequada".
+
+A Meta do IDEB = 6,0 (Padrão OCDE)
+A definição de que um IDEB de 6,0 representa um desempenho "Adequado" ou "Nível de Qualidade Esperado" veio do documento de concepção do próprio indicador em 2007:
+
+"A variável categórica de desempenho educacional foi obtida a partir do fatiamento em faixas da nota do IDEB (normalizada na escala de 0 a 100). A linha de corte para a categoria 'Adequado' ($\ge 60$ pontos) fundamenta-se no marco de qualidade projetado pelo Inep/MEC para o Plano Nacional de Educação (Fernandes, 2007), enquanto os demais intervalos refletem os gradientes ordinais de proficiência e fluxo escolar."

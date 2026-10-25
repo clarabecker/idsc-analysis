@@ -3,6 +3,9 @@
 venv/
 env/
 
+# Cache
+
+
 # Python
 __pycache__/
 *.pyc

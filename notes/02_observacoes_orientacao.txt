@@ -1,0 +1,9 @@
+- Fazer caminho do experimento em um algoritmo de cluster até o final. 
+
+- Usar todas as variáveis para o cluster.
+
+- Refatorar o hierarquico.
+
+- ATENÇÃO: Imputação. 
+  - Eliminação de valores faltantes. 
+  - Testar modelos gradient boost com valores faltantes e valores excluídos. 
