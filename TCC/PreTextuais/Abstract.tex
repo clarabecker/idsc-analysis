@@ -1,12 +1,8 @@
-% ---
-% Abstract
-% ---
-
-% resumo em inglês
-\begin{resumo}[Abstract]
- \begin{otherlanguage*}{english}
-   Elemento obrigatório para todos os trabalhos de conclusão de curso. Opcional para os demais trabalhos acadêmicos, inclusive para artigo científico. Constitui a versão do resumo em português para um idioma de divulgação internacional. Deve aparecer em página distinta e seguindo a mesma formatação do resumo em português.
-
-   \textbf{Keywords}: Keyword 1. Keyword 2. Keyword 3. Keyword 4. Keyword 5.
- \end{otherlanguage*}
-\end{resumo}
+\begin{otherlanguage*}{english}
+	\chapter*{Abstract}
+	\addcontentsline{toc}{chapter}{Abstract}
+	
+	The quality of basic education is frequently assessed in isolation, without considering the socioeconomic and environmental factors that impact school performance outside the classroom environment. In this context, the indicators from the Sustainable Development Cities Index (IDSC) offer a multidimensional perspective that can be explored to understand educational performance at the municipal level. This work aims to analyze the performance of decision tree-based predictive models in the classification task of the performance bands of the Basic Education Development Index (IDEB) in the municipalities of the state of Santa Catarina, using IDSC data. The methodology comprises exploratory data analysis stages, preprocessing with preventive removal of data leakage, feature selection via correlation filtering and removal of education-related indicators, as well as cross-validation for hyperparameter tuning. The algorithms \textit{Random Forest}, \textit{XGBoost}, \textit{LightGBM}, and \textit{CatBoost} were compared, evaluated separately for Early Years (AI) and Final Years (AF) of elementary school, using Accuracy, Precision, \textit{Recall}, and F1-\textit{score} (macro). Gradient Boosting algorithms achieved the best predictive performance for both target variables, although with small differences among models. Feature importance analysis showed that public health indicators (SDG 3) concentrate the largest share of importance in separating the IDEB performance bands in the Final Years. Therefore, the results indicate an association between the socioeconomic context of Santa Catarina municipalities and the IDEB performance bands, providing quantitative and interpretable grounds for the planning and formulation of integrated public policies in educational management.
+	
+	\noindent\textbf{Keywords:} Basic Education Development Index; Machine Learning; Sustainable Development Goals; Model Interpretability; Educational Public Policies.
+\end{otherlanguage*}

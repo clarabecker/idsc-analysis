@@ -5,11 +5,15 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
-\bibitem[Barros, Santos e Souza 2024]{barros2024explicabilidade}
-\abntrefinfo{Barros, Santos e Souza}{Barros; Santos; Souza}{2024}
-{BARROS, A.~B.; SANTOS, C.~D.; SOUZA, E.~F. Análise de explicabilidade no
-  desempenho escolar utilizando {SHAP}.
-\textbf{Brazilian Journal of Development}, v.~10, n.~2, p. 4510--4528, 2024.}
+\bibitem[Barros, Alves e Mello 2024]{barros2024explicabilidade}
+\abntrefinfo{Barros, Alves e Mello}{Barros; Alves; Mello}{2024}
+{BARROS, Ab{\'i}lio~Nogueira; ALVES, Gabriel; MELLO, Rafael~Ferreira.
+  Entendendo os fatores de previs{\~a}o do {TDI} nas escolas p{\'u}blicas
+  brasileiras: Uma abordagem usando a t{\'e}cnica {SHAP}. In:  \textbf{Anais do
+  XXXV Simpósio Brasileiro de Informática na Educação (SBIE)}. Porto
+  Alegre, RS: Sociedade Brasileira de Computação (SBC), 2024. p. 1529--1542.
+  Dispon{\'\i}vel em:
+  \url{https://sol.sbc.org.br/index.php/sbie/article/view/31339}.}
 
 \bibitem[Bishop 2006]{bishop2006pattern}
 \abntrefinfo{Bishop}{Bishop}{2006}
@@ -17,9 +21,14 @@
   York: Springer, 2006.}
 
 \bibitem[Breiman 2001]{breiman2001}
-\abntrefinfo{Breiman}{Breiman}{2001}
+\abntrefinfo{Breiman}{Breiman}{2001a}
 {BREIMAN, Leo. Random forests.
 \textbf{Machine Learning}, Springer, v.~45, n.~1, p. 5--32, 2001.}
+
+\bibitem[Breiman 2001]{breiman2001random}
+\abntrefinfo{Breiman}{Breiman}{2001b}
+{BREIMAN, Leo. Random forests.
+\textbf{Machine learning}, Springer, v.~45, n.~1, p. 5--32, 2001.}
 
 \bibitem[Chen e Guestrin 2016]{chen2016xgboost}
 \abntrefinfo{Chen e Guestrin}{Chen; Guestrin}{2016}
@@ -49,6 +58,25 @@
 \textbf{Journal of Educational Psychology}, Warwick \& York, v.~24, n.~6, p.
   417--441, 1933.}
 
+\bibitem[{Instituto Cidades Sustentáveis} 2023]{idscbr2023}
+\abntrefinfo{{Instituto Cidades Sustentáveis}}{{Instituto Cidades
+  Sustentáveis}}{2023}
+{{Instituto Cidades Sustentáveis}. Índice de desenvolvimento sustentável das
+  cidades - brasil (idsc-br).
+2023.
+Dispon{\'\i}vel em: \url{https://idsc.cidadessustentaveis.org.br/}.}
+
+\bibitem[{Instituto Nacional de Estudos e Pesquisas Educacionais Anísio
+  Teixeira} 2024]{inep_ideb}
+\abntrefinfo{{Instituto Nacional de Estudos e Pesquisas Educacionais Anísio
+  Teixeira}}{{Instituto Nacional de Estudos e Pesquisas Educacionais Anísio
+  Teixeira}}{2024}
+{{Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira}.
+  Índice de desenvolvimento da educação básica (ideb).
+2024.
+Dispon{\'\i}vel em:
+  \url{https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/ideb}.}
+
 \bibitem[Ke et al. 2017]{ke2017lightgbm}
 \abntrefinfo{Ke et al.}{Ke et al.}{2017}
 {KE, Guolin et al. Lightgbm: A highly efficient gradient boosting decision
@@ -63,6 +91,15 @@
 \abntrefinfo{Murphy}{Murphy}{2012}
 {MURPHY, Kevin~P. \textbf{Machine Learning: A Probabilistic Perspective}.
   Cambridge: MIT Press, 2012.}
+
+\bibitem[{Organização das Nações Unidas} 2015]{onu2015agenda2030}
+\abntrefinfo{{Organização das Nações Unidas}}{{Organização das Nações
+  Unidas}}{2015}
+{{Organização das Nações Unidas}. Transformando nosso mundo: A agenda 2030
+  para o desenvolvimento sustentável.
+2015.
+Dispon{\'\i}vel em:
+  \url{https://brasil.un.org/sites/default/files/2020-09/agenda2030-pt-br.pdf}.}
 
 \bibitem[Pearson 1901]{pearson1901lines}
 \abntrefinfo{Pearson}{Pearson}{1901}
@@ -87,12 +124,6 @@ Dispon{\'\i}vel em: \url{https://www.repositorio.ufal.br/handle/riufal/7782}.}
   features. In:  \textbf{Advances in Neural Information Processing Systems 31
   (NeurIPS 2018)}. [S.l.]: Curran Associates, Inc., 2018. p. 6639--6649.}
 
-\bibitem[Santos e Oliveira 2023]{santos2023predicao}
-\abntrefinfo{Santos e Oliveira}{Santos; Oliveira}{2023}
-{SANTOS, J.~M.; OLIVEIRA, R.~A. Predição numérica do {IDEB} através de
-  modelos de regressão.
-\textbf{Revista Brasileira de Estudos Pedagógicos}, v.~104, p. e5320, 2023.}
-
 \bibitem[Silva 2022]{silva2022mineracao}
 \abntrefinfo{Silva}{Silva}{2022}
 {SILVA, Ivonaldo Vicente~da.
@@ -110,28 +141,5 @@ Dispon{\'\i}vel em:
   854--878, 2020.
 Dispon{\'\i}vel em:
   \url{https://journals-sol.sbc.org.br/index.php/rbie/article/view/2831}.}
-
-\bibitem[Sustentáveis 2023]{idscbr2023}
-\abntrefinfo{Sustentáveis}{Sustentáveis}{2023}
-{SUSTENTáVEIS, Instituto~Cidades. Índice de desenvolvimento sustentável das
-  cidades - brasil (idsc-br).
-2023.
-Dispon{\'\i}vel em: \url{https://idsc.cidadessustentaveis.org.br/}.}
-
-\bibitem[Teixeira 2024]{inep_ideb}
-\abntrefinfo{Teixeira}{Teixeira}{2024}
-{TEIXEIRA, Instituto~Nacional de~Estudos~e Pesquisas Educacionais~Anísio.
-  Índice de desenvolvimento da educação básica (ideb).
-2024.
-Dispon{\'\i}vel em:
-  \url{https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/ideb}.}
-
-\bibitem[Unidas 2015]{onu2015agenda2030}
-\abntrefinfo{Unidas}{Unidas}{2015}
-{UNIDAS, Organização das Nações. Transformando nosso mundo: A agenda 2030
-  para o desenvolvimento sustentável.
-2015.
-Dispon{\'\i}vel em:
-  \url{https://brasil.un.org/sites/default/files/2020-09/agenda2030-pt-br.pdf}.}
 
 \end{thebibliography}
