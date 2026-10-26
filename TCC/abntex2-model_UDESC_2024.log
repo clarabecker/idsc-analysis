@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.8)  26 OCT 2026 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.8)  26 OCT 2026 20:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2092,16 +2092,16 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 211.
  [33
 
-] [34] [35] [36
+] [34] [35] [36] [37
 
-]) [37]
-(./abntex2-model_UDESC_2024.bbl (./abntex2-model_UDESC_2024.brf)
+])
+[38] (./abntex2-model_UDESC_2024.bbl (./abntex2-model_UDESC_2024.brf)
 \tf@brf=\write6
 \openout6 = `abntex2-model_UDESC_2024.brf'.
 
 
 bibitemlist
-[38
+[39
 
 
 
@@ -2112,7 +2112,7 @@ Overfull \hbox (172.33942pt too wide) in paragraph at lines 135--135
 nos-[]do-[]ensino-[]medio/$[][]. 
  []
 
-) [39]
+) [40]
 \openout2 = `PosTextuais/Glossario.aux'.
 
  (./PosTextuais/Glossario.tex)
@@ -2155,11 +2155,11 @@ d.
 (rerunfilecheck)             Checksum: E612BAB3CD5099D1A997D91309833CBE;1707.
  ) 
 Here is how much of TeX's memory you used:
- 66589 strings out of 478287
- 1662734 string characters out of 5849290
- 2415575 words of memory out of 5000000
- 83214 multiletter control sequences out of 15000+600000
- 548912 words of font info for 363 fonts, out of 8000000 for 9000
+ 66594 strings out of 478287
+ 1662743 string characters out of 5849290
+ 2414437 words of memory out of 5000000
+ 83212 multiletter control sequences out of 15000+600000
+ 549362 words of font info for 367 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,13n,134p,2069b,2420s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
@@ -2172,10 +2172,10 @@ xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on abntex2-model_UDESC_2024.pdf (40 pages, 409440 bytes).
+Output written on abntex2-model_UDESC_2024.pdf (41 pages, 413054 bytes).
 PDF statistics:
- 693 PDF objects out of 1000 (max. 8388607)
- 604 compressed objects within 7 object streams
- 141 named destinations out of 1000 (max. 500000)
+ 697 PDF objects out of 1000 (max. 8388607)
+ 607 compressed objects within 7 object streams
+ 142 named destinations out of 1000 (max. 500000)
  82932 words of extra memory for PDF output out of 89155 (max. 10000000)
 

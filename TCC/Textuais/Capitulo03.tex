@@ -191,7 +191,7 @@ Este capítulo apresenta e discute os resultados obtidos na avaliação experime
 \section{Análise de Desempenho dos Modelos}
 \label{sec:desempenho}
 
-A avaliação dos modelos foi conduzida de forma independente para os Anos Finais (AF) e Anos Iniciais (AI). A Tabela~\ref{tab:resultados-af-global} apresenta o desempenho na base com todas as variáveis para os Anos Finais, focando nos modelos sem balanceamento.
+A avaliação dos modelos foi conduzida de forma independente para os Anos Finais (AF) e Anos Iniciais (AI). A Tabela~\ref{tab:resultados-af-global} apresenta o desempenho na base com todas as variáveis para os Anos Finais.
 
 \begin{table}[htbp]
 	\centering
@@ -213,9 +213,7 @@ A avaliação dos modelos foi conduzida de forma independente para os Anos Finai
 	\footnotesize{Fonte: A autora, 2026.}
 \end{table}
 
-Na base completa dos Anos Finais, o LightGBM e o \textit{Random Forest} obtiveram a maior acurácia (61,29%), seguidos pelo CatBoost (58,06%) e XGBoost (51,61%). 
-
-A Tabela~\ref{tab:resultados-ai-global} sintetiza os resultados obtidos na base completa para os Anos Iniciais.
+Para os Anos Finais, \textit{LightGBM} e \textit{Random Forest} apresentaram valor de acurácia de 61,29\%, mas o \textit{LightGBM} obteve o maior F1-\textit{score} macro (0,4447) e o maior \textit{recall} macro (0,4652), enquanto o \textit{Random Forest} teve a maior precisão macro (0,4389). Isso indica que, embora acertem a mesma proporção de municípios, o \textit{LightGBM} recupera melhor as faixas menos frequentes, ao passo que o \textit{Random Forest} é mais limitado ao atribuí-las. O \textit{XGBoost} apresentou o pior desempenho em todas as métricas, possuindo o valor de acurácia em 51,61\%. A Tabela~\ref{tab:resultados-ai-global} apresenta os resultados obtidos na base completa para os Anos Iniciais.
 
 \begin{table}[htbp]
 	\centering
@@ -236,12 +234,12 @@ A Tabela~\ref{tab:resultados-ai-global} sintetiza os resultados obtidos na base 
 	\footnotesize{Fonte: A autora, 2026.}
 \end{table}
 
-Para os Anos Iniciais na base global, \textit{Random Forest}, CatBoost e LightGBM empataram na acurácia global (65,45%), destacando-se o LightGBM no F1-\textit{score} macro (0,4917).
+Nos Anos Iniciais, os três modelos alcançaram a mesma acurácia (65,45\%), evidenciando desempenho competitivo entre eles. As métricas macro revelam a diferença: o \textit{LightGBM} se destaca com F1-\textit{score} de 0,4917, \textit{CatBoost} apresenta valor de 0,4198 e \textit{Random Forest} com 0,3641. O \textit{Random Forest}, apesar de precisão próxima à do \textit{LightGBM}, tem o menor valor de \textit{recall} (0,3902), o que sugere maior tendência de apresentar predições para classe majoritária. Observa-se que os modelos preditores di índice do IDEB dos anos finais apresentam acurária superior aos modelos preditores da variável dos anos finais, o que pode ser relacionado com o maior número de registros avaliados na fase de teste. 
 
 \section{Impacto da Seleção de Atributos}
 \label{sec:selecao}
 
-Com o intuito de verificar se a remoção de redundâncias melhora a capacidade preditiva, analisou-se o comportamento dos modelos na base parcial (com atributos selecionados). A Tabela~\ref{tab:resultados-af-parcial} traz os resultados para os Anos Finais.
+Com o intuito de verificar se a remoção de redundâncias melhora a capacidade preditiva dos modelos selecionados para esse estudo, analisou-se o comportamento dos modelos explorando um conjunto de dados com atributos selecionados. A Tabela~\ref{tab:resultados-af-parcial} apresenta os resultados para os Anos Finais.
 
 \begin{table}[htbp]
 	\centering
@@ -263,7 +261,7 @@ Com o intuito de verificar se a remoção de redundâncias melhora a capacidade 
 	\footnotesize{Fonte: A autora, 2026.}
 \end{table}
 
-A seleção de atributos elevou a acurácia global máxima nos Anos Finais para 70,97\% (com LightGBM e XGBoost). Na Tabela~\ref{tab:resultados-ai-parcial}, observam-se os resultados para os Anos Iniciais na base parcial.
+Ao realizar análise dos resultados dos modelos dos anos finais, a seleção de atributos elevou o valor da métrica da acurácia de todos os modelos: \textit{LightGBM} e \textit{XGBoost} atingiram 70,97\%, e o ganho do \textit{XGBoost} foi o mais expressivo (de 51,61\% para 70,97\%). Entretanto, esse ganho não se refletiu nas métricas macro. O F1-\textit{score} do \textit{LightGBM} caiu de 0,4447 para 0,3818 e o do \textit{Random Forest}, de 0,4367 para 0,3505. Apenas o \textit{XGBoost} melhorou nas duas métricas de F1-\textit{score}, anteriormente com valor de 0,3737, agora com 0,3906. Isso sugere que, para a maioria dos modelos, a redução de atributos favoreceu a classificação das faixas majoritárias em detrimento das minoritárias, provavlemente pela eliminação de variáveis que ajudavam a delimitar aas classes. Sendo assim, a melhora de acurácia deve ser interpretada com cautela, já que representa alguns municípios a mais classificados corretamente. A Tabela~\ref{tab:resultados-ai-parcial} apresenta os resultados para os Anos Iniciais.
 
 \begin{table}[htbp]
 	\centering
@@ -285,24 +283,26 @@ A seleção de atributos elevou a acurácia global máxima nos Anos Finais para 
 	\footnotesize{Fonte: A autora, 2026.}
 \end{table}
 
-Nos Anos Iniciais, o CatBoost obteve o maior valor de acurácia na base parcial (69,09\%), enquanto o LightGBM apresentou a melhor precisão macro (0,7031).
+Ao observar os resultados dos anos iniciais, o efeito da seleção foi menos uniforme. O \textit{CatBoost} obteve a maior valor da acurácia (69,09\%) e o \textit{Random Forest} melhorou tanto em acurácia, passando do valor de 65,45\% para 67,27\% quanto em F1, de 0,3641 para 0,3952. Já o \textit{LightGBM} manteve a acurácia (65,45\%) e teve queda no F1, passando de 0,4917 para 0,4523. Chama atenção a precisão macro de 0,7031 do \textit{LightGBM}, modelo se mostra mais criterioso em suas predições.
+
+Em uma análise geral, a seleção de atributos não produziu melhora significativa: aumentou a acurácia nos modelos preditores do índice dos anos finais, mas reduziu o equilíbrio entre as classes na maior parte dos modelos. Na segunda variável alvo, índice do IDEB do anos iniciais, seu efeito dependeu do algoritmo. Em ambas as etapas, o \textit{LightGBM} e o \textit{CatBoost} revelaram-se os mais competitivos, e a escolha entre eles depende da métrica priorizada.
 
 \section{Análise da Importância dos Atributos}
 \label{sec:importancia}
 
-A importância dos atributos foi agregada pelas dimensões dos ODS para quantificar a contribuição relativa de cada grupo de indicadores. Na base global dos Anos Finais, o ODS 3 (Saúde e Bem-Estar) concentrou a maior importância (0,2580), seguido pelo ODS 4 (0,1596) e pelos Escores agregados (0,1232). Nos Anos Iniciais, o ODS 4 liderou com 0,2144, seguido pelos Escores agregados (0,1885) e pelo ODS 3 (0,1396).
+A importância dos atributos, calculada de forma intrínseca pelos modelos baseados em árvores, foi agregada por ODS para identificar quais temas mais contribuem para a classificação do IDEB. Aplicando na base de dados completa, com todos os atributos, os mesmos três grupos lideram nas duas etapas. Para a variável do índice dos anos finais, o ODS 3, que compreende saúde e bem-estar, tem a maior importância (25,80\%), seguido pelo ODS 4, educação de qualidade, com 15,96\%, e pelos Escores agregados, com 12,32\%. Para a variável do índice dos anos iniciais, o ODS 4 apresenta maior porcentagem de importância com valor 21,44\%, seguido pelos Escores agregados 18,85\% e pelo ODS 3 com valor de 13,96\%.
 
-A Figura~\ref{fig:ods-importance} ilustra os 6 principais ODS em importância agregada para a base parcial dos Anos Finais. Na base parcial dos Anos Finais, o ODS 3 manteve a hegemonia com 32,22\% da importância, acompanhado pelos Escores agregados (13,25\%) e pelo ODS 2 (6,96\%).
+A Figura~\ref{fig:ods-importance} mostra os seis ODS mais importantes nos Anos Finais após a seleção de atributos.
 
-\begin{figure}[htbp] % Ou use [H] se tiver o pacote float carregado
+\begin{figure}[!htbp]
 	\centering
 	\caption{Importância agregada por ODS para os Anos Finais na base parcial.}
 	\label{fig:ods-importance}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xbar,
-			width=0.68\textwidth,
-			height=6.0cm,
+			width=0.75\textwidth,
+			height=5.0cm,
 			xlabel={Importância relativa normalizada},
 			ytick={1,2,3,4,5,6},
 			yticklabels={
@@ -343,7 +343,7 @@ A Figura~\ref{fig:ods-importance} ilustra os 6 principais ODS em importância ag
 	\footnotesize{Fonte: A autora, 2026.}
 \end{figure}
 
-Para os Anos Iniciais na base parcial, os Escores agregados assumiram a liderança com 23,74\%, seguidos pelo ODS 3 com 17,97\% e ODS 8 com 8,20\%.
+Com a seleção de atributos, o ODS 4 deixou de aparecer entre os principais grupos nas duas etapas. Isso é coerente com a remoção de atributos correlacionados: ao eliminar indicadores redundantes, a importância se concentra nos que restam. Em resumo, variáveis relacionadas a saúde (ODS 3) e os Escores agregados são os grupos mais associados às faixas do IDEB, e a educação (ODS 4) tem peso maior no cenário da predição dos anos iniciais com a base de dados completa.
 
 \chapter{CONSIDERAÇÕES FINAIS}
 
