@@ -1,4 +1,50 @@
-% Remova ou comente estas linhas caso estejam ativas no seu documento principal:
-% \glossario
-% \include{apendices}
-% \include{anexos}
+\chapter{Apêndices}
+
+\section{Uso de ferramentas de inteligência artificial}
+
+\begin{table}[htbp]
+	\centering
+	\footnotesize
+	\begin{tabularx}{\textwidth}{p{2.2cm} p{2.2cm} p{1.6cm} X X p{1.3cm}}
+		\toprule
+		\textbf{Etapa} & \textbf{Ferramenta e versão} & \textbf{Data} & \textbf{Objetivo} & \textbf{Revisão aplicada} & \textbf{Prompts} \\
+		\midrule
+		Figura 4 & Claude (Anthropic), Sonnet 5.5 & 26/10/2026 & Código TikZ do gráfico & Teste, ajuste e verificação dos valores da figura & Apêndice~B \\
+		\midrule
+		Revisão geral do texto & Claude (Anthropic), Sonnet 5.5 & 26/10/2026 & Identificação de inconsistências entre capítulos & Originalidade do texto escrito pela autora, sem alterações & Apêndice~B \\
+		\midrule
+		Notebook de importância & Claude (Anthropic), Sonnet 5.5 & 26/10/2026 & Revisão do código quanto a risco de vazamento de dados & Resultados iguais aos iniciais com código implementado & Apêndice~B \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Uso de ferramentas de inteligência artificial.}
+	\vspace{4pt}
+	{\footnotesize \centering Fonte: A autora, 2026.\par}
+\end{table}
+
+\clearpage
+
+% --- APÊNDICE B: Prompts utilizados ---
+\section{Prompts utilizados}
+
+\begin{table}[htbp]
+	\centering
+	\footnotesize
+	\begin{tabularx}{\textwidth}{c p{2.2cm} p{1.6cm} X X}
+		\toprule
+		\textbf{Nº} & \textbf{Etapa} & \textbf{Data} & \textbf{Prompt (texto original)} & \textbf{Resposta da ferramenta} \\
+		\midrule
+		1 & Figura 4 & 26/10/2026 & ``A figura ficou bugada na página'' [anexo: captura de tela] & Explicação da causa (posicionamento do \textit{float}) e sugestão de ajuste. \\
+		\midrule
+		2 & Figura 4 & 26/10/2026 & ``Não posso usar o float vaii bugar tudo'' [anexo: preâmbulo LaTeX] & Correção sem o pacote \textit{float}, usando \texttt{[!htbp]} e ajustes de parâmetros. \\
+		\midrule
+		3 & Figura 4 & 26/10/2026 & ``Ficou meio feia, não tem como deixar mais bonito?'' [anexo: captura de tela] & Nova versão do gráfico (destaque, porcentagens, grade). \\
+		\midrule
+		4 & Revisão geral & 26/10/2026 & ``Meu tcc ficou bom?'' [anexo: PDF do TCC] & Avaliação geral, lista de inconsistências e erros de texto. \\
+		\midrule
+		5 & Notebook de importância & 26/10/2026 & ``Possível vazamento nos ``Escores agregados''. Eles aparecem entre os mais importantes. Confira se a pontuação geral do IDSC e a do ODS 4, que embutem o IDEB, foram removidas na base parcial. [anexo: notebook \texttt{07\_feature\_importance.ipynb}] & Análise do notebook: risco de vazamento pelos escores agregados e inconsistência quanto ao balanceamento. \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Prompts enviados à ferramenta de IA e resumo das respostas.}
+	\vspace{4pt}
+	{\footnotesize \centering Fonte: A autora, 2026.\par}
+\end{table}

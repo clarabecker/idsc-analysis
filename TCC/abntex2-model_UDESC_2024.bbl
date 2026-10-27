@@ -21,14 +21,9 @@
   York: Springer, 2006.}
 
 \bibitem[Breiman 2001]{breiman2001}
-\abntrefinfo{Breiman}{Breiman}{2001a}
+\abntrefinfo{Breiman}{Breiman}{2001}
 {BREIMAN, Leo. Random forests.
 \textbf{Machine Learning}, Springer, v.~45, n.~1, p. 5--32, 2001.}
-
-\bibitem[Breiman 2001]{breiman2001random}
-\abntrefinfo{Breiman}{Breiman}{2001b}
-{BREIMAN, Leo. Random forests.
-\textbf{Machine learning}, Springer, v.~45, n.~1, p. 5--32, 2001.}
 
 \bibitem[Chen e Guestrin 2016]{chen2016xgboost}
 \abntrefinfo{Chen e Guestrin}{Chen; Guestrin}{2016}

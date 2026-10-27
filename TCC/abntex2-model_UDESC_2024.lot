@@ -1,8 +1,10 @@
 \babel@toc {brazil}{}\relax 
 \babel@toc {brazil}{}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces Distribuição dos municípios catarinenses por faixa do IDEB, após os filtros aplicados.\relax }}{28}{table.caption.21}%
-\contentsline {table}{\numberline {2}{\ignorespaces Espaços de busca dos hiperparâmetros de cada algoritmo.\relax }}{30}{table.caption.22}%
-\contentsline {table}{\numberline {3}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Finais (AF) com a base global (sem balanceamento).\relax }}{33}{table.caption.24}%
-\contentsline {table}{\numberline {4}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Iniciais (AI) com a base global (sem balanceamento).\relax }}{33}{table.caption.25}%
-\contentsline {table}{\numberline {5}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Finais (AF) com a base parcial (sem balanceamento).\relax }}{34}{table.caption.26}%
-\contentsline {table}{\numberline {6}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Iniciais (AI) com a base parcial (sem balanceamento).\relax }}{35}{table.caption.27}%
+\contentsline {table}{\numberline {1}{\ignorespaces Distribuição dos municípios catarinenses por faixa do IDEB, após os filtros aplicados.\relax }}{29}{table.caption.21}%
+\contentsline {table}{\numberline {2}{\ignorespaces Espaços de busca dos hiperparâmetros de cada algoritmo.\relax }}{31}{table.caption.22}%
+\contentsline {table}{\numberline {3}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Finais (AF) com a base global (sem balanceamento).\relax }}{34}{table.caption.24}%
+\contentsline {table}{\numberline {4}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Iniciais (AI) com a base global (sem balanceamento).\relax }}{34}{table.caption.25}%
+\contentsline {table}{\numberline {5}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Finais (AF) com a base parcial.\relax }}{35}{table.caption.26}%
+\contentsline {table}{\numberline {6}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Iniciais (AI) com a base parcial.\relax }}{36}{table.caption.27}%
+\contentsline {table}{\numberline {7}{\ignorespaces Uso de ferramentas de inteligência artificial.\relax }}{42}{table.caption.32}%
+\contentsline {table}{\numberline {8}{\ignorespaces Prompts enviados à ferramenta de IA e resumo das respostas.\relax }}{43}{table.caption.33}%
