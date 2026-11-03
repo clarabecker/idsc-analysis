@@ -2,7 +2,6 @@
 \babel@toc {brazil}{}\relax 
 \babel@toc {brazil}{}\relax 
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Abstract}{8}{section*.7}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
@@ -52,8 +51,8 @@
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {CONSIDERAÇÕES FINAIS}}{39}{chapter.6}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{41}{section*.29}%
-\contentsline {chapter}{APÊNDICE A — Uso de ferramentas de inteligência artificial}{43}{section*.30}%
+\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{41}{section*.30}%
+\contentsline {chapter}{APÊNDICE A — Uso de ferramentas de inteligência artificial}{43}{section*.31}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{APÊNDICE B — Prompts utilizados}{44}{section*.33}%
+\contentsline {chapter}{APÊNDICE B — Prompts utilizados}{44}{section*.34}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
