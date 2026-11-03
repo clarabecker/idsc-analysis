@@ -1,10 +1,12 @@
 \babel@toc {brazil}{}\relax 
 \babel@toc {brazil}{}\relax 
-\contentsline {table}{\numberline {1}{\ignorespaces Distribuição dos municípios catarinenses por faixa do IDEB, após os filtros aplicados.\relax }}{29}{table.caption.21}%
-\contentsline {table}{\numberline {2}{\ignorespaces Espaços de busca dos hiperparâmetros de cada algoritmo.\relax }}{31}{table.caption.22}%
-\contentsline {table}{\numberline {3}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Finais (AF) com a base global (sem balanceamento).\relax }}{34}{table.caption.24}%
-\contentsline {table}{\numberline {4}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Iniciais (AI) com a base global (sem balanceamento).\relax }}{34}{table.caption.25}%
-\contentsline {table}{\numberline {5}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Finais (AF) com a base parcial.\relax }}{35}{table.caption.26}%
-\contentsline {table}{\numberline {6}{\ignorespaces Métricas de desempenho no conjunto de teste para Anos Iniciais (AI) com a base parcial.\relax }}{36}{table.caption.27}%
-\contentsline {table}{\numberline {7}{\ignorespaces Uso de ferramentas de inteligência artificial.\relax }}{42}{table.caption.32}%
-\contentsline {table}{\numberline {8}{\ignorespaces Prompts enviados à ferramenta de IA e resumo das respostas.\relax }}{43}{table.caption.33}%
+\contentsline {table}{\numberline {1}{\ignorespaces Comparativo entre os trabalhos correlatos e o presente estudo.\relax }}{25}{table.caption.16}%
+\contentsline {table}{\numberline {2}{\ignorespaces Distribuição dos municípios catarinenses por faixa de desafio do IDEB (Painel IDSC-BR), após os filtros aplicados.\relax }}{29}{table.caption.19}%
+\contentsline {table}{\numberline {3}{\ignorespaces Espaços de busca dos hiperparâmetros de cada algoritmo.\relax }}{31}{table.caption.20}%
+\contentsline {table}{\numberline {4}{\ignorespaces Métricas de desempenho no conjunto de teste para anos finais com o conjunto de dados completo.\relax }}{34}{table.caption.22}%
+\contentsline {table}{\numberline {5}{\ignorespaces Métricas de desempenho no conjunto de teste para anos iniciais com o conjunto de dados completo.\relax }}{35}{table.caption.23}%
+\contentsline {table}{\numberline {6}{\ignorespaces Métricas de desempenho no conjunto de teste para anos finais com subconjunto de dados com 105 atributos.\relax }}{36}{table.caption.24}%
+\contentsline {table}{\numberline {7}{\ignorespaces Métricas de desempenho no conjunto de teste para anos iniciais com subconjunto de dados com 105 atributos.\relax }}{36}{table.caption.25}%
+\contentsline {table}{\numberline {8}{\ignorespaces Importância agregada por ODS no conjunto e subconjunto com 105 atributos para os anos finais e iniciais.\relax }}{38}{table.caption.26}%
+\contentsline {table}{\numberline {9}{\ignorespaces Uso de ferramentas de inteligência artificial.\relax }}{44}{table.caption.30}%
+\contentsline {table}{\numberline {10}{\ignorespaces Prompts enviados à ferramenta de IA e resumo das respostas.\relax }}{45}{table.caption.31}%

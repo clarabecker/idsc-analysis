@@ -4,7 +4,6 @@ The top-level auxiliary file: abntex2-model_UDESC_2024.aux
 A level-1 auxiliary file: PreTextuais/Capa.aux
 A level-1 auxiliary file: PreTextuais/FolhadeRosto.aux
 A level-1 auxiliary file: PreTextuais/FichaCatalografica.aux
-A level-1 auxiliary file: PreTextuais/Errata.aux
 A level-1 auxiliary file: PreTextuais/FolhadeAprovacao.aux
 A level-1 auxiliary file: PreTextuais/Dedicatoria.aux
 A level-1 auxiliary file: PreTextuais/Agradecimentos.aux
@@ -43,42 +42,42 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 21 entries,
             6714 wiz_defined-function locations,
-            1343 strings with 13869 characters,
-and the built_in function-call counts, 26688 in all, are:
-= -- 3103
-> -- 406
-< -- 635
-+ -- 806
-- -- 126
-* -- 1621
-:= -- 3320
-add.period$ -- 73
+            1340 strings with 13606 characters,
+and the built_in function-call counts, 23784 in all, are:
+= -- 2621
+> -- 434
+< -- 455
++ -- 632
+- -- 134
+* -- 1493
+:= -- 2989
+add.period$ -- 74
 call.type$ -- 21
 change.case$ -- 140
-chr.to.int$ -- 34
+chr.to.int$ -- 37
 cite$ -- 18
-duplicate$ -- 2546
-empty$ -- 1267
-format.name$ -- 599
-if$ -- 5446
+duplicate$ -- 2011
+empty$ -- 1316
+format.name$ -- 632
+if$ -- 5064
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 342
-newline$ -- 98
+missing$ -- 345
+newline$ -- 93
 num.names$ -- 90
-pop$ -- 412
+pop$ -- 413
 preamble$ -- 1
-purify$ -- 72
+purify$ -- 73
 quote$ -- 0
-skip$ -- 2743
+skip$ -- 2227
 stack$ -- 1
-substring$ -- 1331
-swap$ -- 953
-text.length$ -- 27
+substring$ -- 1179
+swap$ -- 802
+text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 9
+type$ -- 8
 warning$ -- 0
-while$ -- 148
+while$ -- 150
 width$ -- 0
-write$ -- 298
+write$ -- 300

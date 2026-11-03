@@ -1,0 +1,381 @@
+
+\chapter{ABORDAGEM PROPOSTA}
+
+Este capítulo detalha a execução prática da metodologia proposta, abrangendo desde o fluxo operacional e as ferramentas utilizadas até o treinamento dos modelos preditivos de classificação e o gerenciamento do projeto.
+
+\section{Análise Exploratória de Dados}
+
+A análise exploratória dos dados apresentou informações relevantes para este estudo. Em um primeiro momento, foi extraída a matriz de correlação linear entre as variáveis dos indicadores do IDSC e o índice do IDEB. A análise da matriz evidenciou que vários indicadores socioeconômicos, tais como acesso ao esgotamento sanitário, renda, cobertura de água e serviços essenciais, apresentam associação com o índice do IDEB. No entanto, essa análise identifica apenas relações lineares. Portanto, sendo necessário o uso de modelos capazes de identificar relações não lineares. 
+
+A Figura~\ref{fig:heatmapideb} apresenta a matriz de correlação linear calculada para os determinantes sociais avaliados em relação ao IDEB. Observa-se que variáveis ligadas à infraestrutura urbana e serviços básicos apresentam coeficientes de correlação moderados, com valores variando entre $-0{,}36$ e $0{,}63$, indicando a presença de tendências socioeconômicas associadas ao desempenho educacional municipal, ainda que com diferentes intensidades e sentidos.
+
+\begin{figure}[tbph]
+	\centering
+	\caption{Matriz de correlação linear entre indicadores do IDSC e o IDEB.}
+	\label{fig:heatmap_ideb}
+	\includegraphics[width=0.7\textwidth]{heatmap_ideb}
+	\\ \vspace{2pt} 
+	\footnotesize{Fonte: A autora, 2026.}
+\end{figure}
+
+Para analisar a distribuição e o comportamento dessas variáveis frente ao desempenho escolar, elaborou-se o gráfico de dispersão apresentado na Figura~\ref{fig:scatterideb}. Conforme observado na Figura~\ref{fig:scatterideb}, ao lado esquerdo do gráfico, o cenário de menor vulnerabilidade socioeconômica apresenta maior dispersão dos dados. Isso indica que, ao estabilizar a renda e as condições básicas da população, outros fatores passam a exercer maior importância no desempenho do índice de qualidade da educação básica. A linha de tendência central, ajustada por meio de uma regressão linear, busca resumir o comportamento médio dos dados, levando em conta os municípios presentes na base analisada, porém não abrange os municípios que se comportam como \textit{outliers} positivos.
+
+\begin{figure}[tbph]
+	\centering
+	\caption{Gráfico de dispersão entre o indicador de Baixa Renda (eixo x) e o IDEB (eixo) com linha de tendência linear.}
+	\label{fig:scatterideb}
+	\includegraphics[width=0.8\textwidth]{scatter_ideb}
+	\\ \vspace{2pt} 
+	\footnotesize{Fonte: A autora, 2026.}
+\end{figure}
+
+A Figura \ref{fig:scatterideb} apresenta o gráfico de dispersão entre o indicador de proporção de baixa renda, população com rendimento nominal domiciliar per capita de até 1/4 de salário mínimo, e as notas do IDEB. Observa-se uma dispersão ampla dos municípios em âmbito nacional, acompanhada por uma leve tendência de declínio na linha de regressão linear. Esse comportamento sugere que municípios com maiores partes da população em situação de extrema vulnerabilidade econômica tendem a concentrar maiores desafios no desempenho educacional. Contudo, a alta variabilidade e a densidade de pontos evidenciam que fatores socioeconômicos isolados não explicam integralmente os resultados educacionais.
+
+A análise exploratória de dados evidencia o comportamento heterogêneo do conjunto de dados nacional do IDSC, demonstrando a dispersão acentuada entre os municípios brasileiros. Esse comportamento demanda uma estratégia de segmentação do conjunto, motivando a seleção do subconjunto focado nos municípios do estado de Santa Catarina. O aprofundamento das análises exploratórias para o contexto catarinense revela especificidades regionais importantes que contribuem de forma relevante para a compreensão dos fatores associados ao desempenho educacional.
+
+\section{Pré-processamento da base de dados}
+
+Nesta etapa, foram aplicadas técnicas de pré-processamento com o objetivo de estruturar e adequar a base de dados do IDSC-BR para a execução dos algoritmos de aprendizado de máquina. Inicialmente, realizou-se a inspeção do conjunto de dados para a identificação de metadados, colunas descritivas e variáveis categóricas irrelevantes para o processo preditivo. Uma diretriz metodológica adotada foi a remoção preventiva de colunas e índices que pudessem induzir ao vazamento de dados (\textit{data leakage}). Para isso, foram eliminadas variáveis e notas intermediárias que compartilhavam dependência semântica com as notas e faixas do IDEB, assegurando que os modelos de classificação fossem treinados estritamente com base nos indicadores exógenos de desenvolvimento sustentável, sem variáveis que gerassem acurácias artificialmente infladas. Por fim, a base de dados resultante foi convertida e persistida no formato CSV (\textit{Comma-Separated Values}).
+
+\section{Treinamento dos Modelos}
+
+A predição do desempenho educacional foi formulada como um problema de classificação multiclasse. Nessa tarefa, os indicadores exógenos do IDSC atuam como atributos preditores, enquanto a variável alvo representa o nível de desafio do município no indicador de educação, derivado diretamente da metodologia do IDSC. Foram consideradas duas variáveis alvo independentes: os anos iniciais e os anos finais do ensino fundamental, cujos modelos foram treinados e avaliados separadamente.
+
+\subsection{Definição das classes com base no Painel IDSC}
+
+A variável alvo adotada neste estudo utiliza a classificação qualitativa do Painel do IDSC-BR inserida no escopo do ODS 4, educação de qualidade. Espelhada na metodologia internacional do \textit{Sustainable Development Report} da \citeonline{onu2015agenda2030}, essa classificação agrupa o desempenho educacional dos municípios em uma escala de cores que representa a proximidade do cumprimento da meta estipulada para a Agenda 2030. 
+
+A categorização reflete os seguintes níveis de desafio:
+\begin{itemize}
+	\item \textbf{Vermelho:} Desafios maiores. Indica que o município apresenta notas de IDEB baixas ou estagnadas, sendo uma zona de alerta máximo em relação aos objetivos de desenvolvimento sustentável.
+	\item \textbf{Laranja:} Desafios significativos. Aponta que o município possui resultados intermediários ou baixos, necessitando de melhorias na qualidade da educação.
+	\item \textbf{Amarelo:} Desafios moderados. Representa municípios com desempenho intermediário, próximos da média, mas que ainda precisam evoluir para alcançar o ideal de qualidade.
+	\item \textbf{Verde:} Meta atingida. Indica que o município alcançou a pontuação de corte considerada excelente pelo índice, cumprindo plenamente a meta da Agenda 2030 para o indicador.
+\end{itemize}
+
+Dos 295 municípios catarinenses, foram mantidos aqueles com a classificação divulgada para a etapa correspondente, 152 municípios nos anos finais e 273 nos anos iniciais. O critério de remoção de classes com menos de dois exemplos não excluiu nenhuma categoria, mantendo a integridade estrutural das distribuições. A Tabela~\ref{tab:distribuicao-classes} apresenta a distribuição final das instâncias em cada alvo por categoria de desafio.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Distribuição dos municípios catarinenses por faixa de desafio do IDEB (Painel IDSC-BR), após os filtros aplicados.}
+	\label{tab:distribuicao-classes}
+	\begin{tabular}{llrr}
+		\toprule
+		\textbf{Etapa} & \textbf{Faixa de Desafio (Painel)} & \textbf{Municípios} & \textbf{\%} \\
+		\midrule
+		\multirow{4}{*}{Anos finais (n = 152)}
+		& Vermelho (Desafios maiores)       & 2   & 1,3 \\
+		& Laranja (Desafios significativos) & 20  & 13,2 \\
+		& Amarelo (Desafios moderados)     & 62  & 40,8 \\
+		& Verde (Meta atingida)            & 68  & 44,7 \\
+		\midrule
+		\multirow{4}{*}{Anos iniciais (n = 273)}
+		& Vermelho (Desafios maiores)       & 0   & -- \\
+		& Laranja (Desafios significativos) & 28  & 10,3 \\
+		& Amarelo (Desafios moderados)     & 171 & 62,6 \\
+		& Verde (Meta atingida)            & 74  & 27,1 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\subsection{Partição dos dados}
+
+Os dados foram divididos em 80\% para o conjunto de treinamento e 20\% para o conjunto de teste, estratificados pela classe e com semente aleatória fixa (\textit{random\_state} = 42), garantindo a reprodutibilidade dos resultados. Desse modo, para os anos finais, o conjunto de treinamento ficou composto por 121 municípios e o de teste por 31 municípios; para os anos inicias, utilizou-se 218 municípios no treinamento e 55 no teste. O conjunto de teste foi mantido estritamente isolado durante o ajuste de hiperparâmetros, sendo empregado exclusivamente na avaliação final dos modelos.
+
+\subsection{Seleção de atributos}
+
+Como experimento adicional para comparar o desempenho preditivo, os modelos foram treinados utilizando um subconjunto reduzido de 105 atributos. O processo de filtragem ocorreu em duas etapas. Inicialmente, realizou-se uma análise exploratória da matriz de correlação de Pearson, na qual foram identificados 15 pares de variáveis com correlação absoluta superior a 0,80. Para cada par, descartou-se a variável que apresentava maior correlação média com as demais, reduzindo o conjunto de preditores de 132 para 121 colunas. Na etapa seguinte, foram removidas as variáveis diretamente relacionadas à educação e ao ODS 4, evitando que a resposta fosse inferida de atributos semanticamente dependentes do alvo, o que resultou nos 105 atributos finais.
+
+Adicionalmente, avaliou-se a aplicação da Análise de Componentes Principais (PCA) sobre os dados padronizados, com imputação prévia pela mediana. Utilizando 15 componentes, obteve-se uma variância explicada acumulada de 51,53\%, evidenciando que a informação relevante encontra-se dispersa em múltiplas dimensões que uma projeção de baixa dimensionalidade não conseguiria capturar integralmente. Por esse motivo, a PCA não foi adotada para a eliminação de atributos, mantendo-se o subconjunto obtido pelas etapas de filtragem direta.
+
+Durante o treinamento, o tratamento de valores ausentes seguiu o comportamento nativo de cada algoritmo. O modelo \textit{Random Forest}, que não suporta dados faltantes nativamente. Para suprir essa limitação sem a necessidade de descartar amostras valiosas de municípios, empregou-se a técnica de \textbf{imputação iterativa} (\textit{Multivariate Imputation by Chained Equations} - MICE). Por sua vez, os algoritmos \textit{XGBoost}, \textit{LightGBM} e \textit{CatBoost} trataram os valores ausentes de forma nativa em suas estruturas.
+
+A imputação iterativa preenche os valores vazios estimando-os com base nas outras variáveis da base de forma cíclica. No nosso caso, o modelo foi configurado usando o \textit{Extra Trees Regressor} como base. Para evitar qualquer vazamento de dados (\textit{data leakage}), o imputador foi treinado exclusivamente no conjunto de treino (\textit{X\_train}) e só depois aplicado no teste (\textit{X\_test}). Desse modo, foi mantida a distribuição original dos dados e permitido que o \textit{Random Forest} fosse treinado de forma justa e comparável com os demais algoritmos.
+
+\subsection{Modelos e ajuste de hiperparâmetros}
+
+Este estudo compara quatro algoritmos baseados em árvores de decisão: \textit{Random Forest}, \textit{Extreme Gradient Boosting} (XGBoost), \textit{Light Gradient Boosting Machine} (LightGBM) e \textit{Categorical Boosting} (CatBoost). A escolha se justifica pela adequação a dados tabulares de alta dimensionalidade e pela disponibilidade de medidas intrínsecas de importância de atributos, requisito essencial para a etapa de interpretabilidade.
+
+Os hiperparâmetros foram ajustados por meio de busca aleatória (\textit{RandomizedSearchCV}), metodologia proposta por \citeonline{bergstra2012random}, testando 50 combinações sorteadas do espaço de busca de cada algoritmo, conforme apresentado na Tabela~\ref{tab:espacos-busca}. Cada combinação foi avaliada por validação cruzada estratificada de três \textit{folds} sobre o conjunto de treino. Como as classes do problema são desbalanceadas, adotou-se o F1-\textit{score} macro como critério de otimização na busca, evitando o viés de métricas orientadas apenas à acurácia global. O modelo que apresentou o melhor desempenho foi retreinado sobre todo o conjunto de treinamento e avaliado no conjunto de teste. Os demais hiperparâmetros foram mantidos nos valores padrão de cada biblioteca, e a semente aleatória foi fixada em 42.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Espaços de busca dos hiperparâmetros de cada algoritmo.}
+	\label{tab:espacos-busca}
+	\begin{tabular}{llp{6.5cm}}
+		\toprule
+		\textbf{Algoritmo} & \textbf{Hiperparâmetro} & \textbf{Valores} \\
+		\midrule
+		\multirow{5}{*}{\textit{Random Forest}}
+		& \texttt{n\_estimators}      & 100, 200, 300 \\
+		& \texttt{max\_depth}         & sem limite, 5, 10, 15, 20 \\
+		& \texttt{min\_samples\_split} & 2, 5, 10 \\
+		& \texttt{min\_samples\_leaf}  & 1, 2, 4 \\
+		& \texttt{max\_features}      & \texttt{sqrt}, \texttt{log2}, todos \\
+		\midrule
+		\multirow{5}{*}{XGBoost}
+		& \texttt{n\_estimators}      & 100, 200, 300, 500 \\
+		& \texttt{max\_depth}         & 3, 5, 7, 9 \\
+		& \texttt{learning\_rate}     & 0,01; 0,05; 0,1; 0,2 \\
+		& \texttt{subsample}          & 0,6; 0,8; 1,0 \\
+		& \texttt{colsample\_bytree}  & 0,6; 0,8; 1,0 \\
+		\midrule
+		\multirow{5}{*}{LightGBM}
+		& \texttt{n\_estimators}      & 100, 200, 300, 500 \\
+		& \texttt{num\_leaves}        & 15, 31, 63, 127 \\
+		& \texttt{learning\_rate}     & 0,01; 0,05; 0,1; 0,2 \\
+		& \texttt{subsample}          & 0,6; 0,8; 1,0 \\
+		& \texttt{colsample\_bytree}  & 0,6; 0,8; 1,0 \\
+		\midrule
+		\multirow{4}{*}{CatBoost}
+		& \texttt{iterations}         & 200, 400, 600 \\
+		& \texttt{depth}              & 4, 6, 8, 10 \\
+		& \texttt{learning\_rate}     & 0,01; 0,05; 0,1; 0,2 \\
+		& \texttt{l2\_leaf\_reg}      & 1, 3, 5, 7 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Métricas de avaliação}
+
+O desempenho dos modelos foi avaliado no conjunto de teste por meio de acurácia, precisão, \textit{recall} e F1-\textit{score}. Como as classes apresentam distribuição desbalanceada (Tabela~\ref{tab:distribuicao-classes}), a precisão, o \textit{recall} e o F1-\textit{score} foram calculados utilizando a média macro. Adicionalmente, o F1-\textit{score} macro foi adotado como métrica de referência principal, mitigando o viés da acurácia isolada, que pode ser artificialmente inflada pela predição recorrente da classe majoritária.
+
+\subsection{Importância dos atributos}
+
+A relevância dos atributos foi extraída por meio de medidas de importância intrínsecas aos algoritmos baseados em árvores de decisão. Essas métricas ajudam a identificar quais indicadores do IDSC exercem maior influência no aprendizado preditivo, auxiliando no mapeamento dos fatores associados ao desempenho educacional dos municípios catarinenses. Cada algoritmo emprega uma abordagem específica:
+
+\begin{itemize}
+	\item \textit{Random Forest}: baseia-se na redução média de impureza calculada nos nós da árvore \cite{breiman2001};
+	\item XGBoost e LightGBM: utilizam o ganho médio obtido nos nós em que o atributo é acionado \cite{chen2016xgboost, ke2017lightgbm};
+	\item CatBoost: emprega a variação média na predição quando o valor do atributo é alterado, medida de natureza similar ao ganho, porém sem basear-se na impureza \cite{prokhorenkova2018catboost}.
+\end{itemize}
+
+A análise de importância foi aplicada aos quatro algoritmos, considerando os dois alvos (anos finais e anos iniciais) e os dois conjuntos de dados (todos os atributos e subconjunto com menos atributos). Para cada combinação, utilizando os melhores hiperparâmetros obtidos na busca aleatória, o modelo foi retreinado sobre o conjunto de treinamento utilizando cinco sementes aleatórias distintas. A importância final de cada atributo corresponde à média entre as réplicas, o que atenua a instabilidade decorrente do conjunto de dados reduzido, como os índices dos municípios catarinenses. 
+
+Para consolidar os resultados entre os diferentes modelos, calcularam-se a importância média, o desvio entre os algoritmos, a posição média no ranking e a frequência com que o atributo integrou o grupo dos 20 mais relevantes. Atributos destacados simultaneamente em múltiplos algoritmos foram considerados mais consistentes. 
+
+Por fim, as importâncias dos indicadores foram agrupadas por ODS. Os valores que resumem vários indicadores, como escores por objetivo e a pontuação geral do índice, foram mantidos em um grupo separado para evitar a contagem duplicada de uma mesma informação. Ressalta-se que as importâncias obtidas refletem os padrões estatísticos utilizados pelos modelos para a classificação das faixas do IDEB, indicando correlações estruturais e não necessariamente relações diretas de causa e efeito.
+
+\section{Organização do projeto}
+
+A estrutura do projeto foi organizada de forma modular e sequencial, de modo a facilitar a manutenção e a reprodutibilidade dos experimentos. A Figura~\ref{fig:organizacao-projeto} apresenta uma visão geral da estrutura do projeto.
+
+\begin{figure}[htbp]
+	\centering
+	\caption{Organização do projeto.}
+	\label{fig:organizacao-projeto}
+	\includegraphics[width=0.8\textwidth]{organizacao_projeto}
+	\\ \vspace{2pt}
+	\footnotesize{Fonte: A autora, 2026.}
+\end{figure}
+
+
+O diretório \texttt{data} armazena os dados em duas etapas. Em \texttt{raw} fica o conjunto de dados original do IDSC-BR 2025, mantida sem alterações. Em \texttt{processed} ficam os arquivos gerados pelas etapas de preparação: a base processada (\texttt{Base\_de\_Dados\_Processada.csv}), os alvos do IDEB mantidos em arquivo separado (\texttt{Base\_de\_Alvos\_IDEB.csv}), a lista de atributos selecionados (\texttt{features\_selecionadas\_sc.json}) e os resultados da análise de importância dos atributos.
+
+O diretório \texttt{notebooks} concentra o código, organizado em \textit{notebooks} Jupyter que seguem a ordem do fluxo de trabalho: análise exploratória dos dados, limpeza do cojunto de dados, construção dos alvos de classificação, seleção de atributos, predição com todos os atributos, predição com os atributos selecionados e análise da importância dos atributos. Cada \textit{notebook} lê os arquivos produzidos pela etapa anterior, de modo que o encadeamento fica explícito.
+
+Manter os alvos em um arquivo separado da base de atributos evita o vazamento de informação, pois a classificação do Painel nunca faz parte dos dados fornecidos aos modelos. A separação entre os dois experimentos em \textit{notebooks} distintos, com o mesmo procedimento de avaliação, permite compará-los em condições idênticas. Todas as etapas com componente aleatório utilizam semente fixa, o que permite reproduzir os resultados.
+
+O projeto foi desenvolvido em Python, com as bibliotecas \textit{pandas} e \textit{scikit-learn} para a manipulação dos dados e a avaliação, \textit{XGBoost}, \textit{LightGBM} e \textit{CatBoost} para os modelos, e \textit{matplotlib} e \textit{seaborn} para as visualizações. O código está disponível publicamente no GitHub\footnote{\url{https://github.com/clarabecker/idsc-analysis}}, permitindo sua reprodução e exploração por outros pesquisadores.
+
+\chapter{RESULTADOS E DISCUSSÃO}
+
+Este capítulo apresenta e discute os resultados obtidos na avaliação experimental dos modelos preditivos aplicados à tarefa de classificação do desempenho do Índice de Desenvolvimento da Educação Básica (IDEB) nos municípios do estado de Santa Catarina, para os anos finais e anos iniciais do ensino fundamental. A Seção~\ref{sec:desempenho} analisa o desempenho quantitativo dos algoritmos no conjunto de dados com todos os atributos. A Seção~\ref{sec:selecao} aborda os impactos da etapa de seleção de atributos, formando um subconjunto de dados. Por fim, a Seção~\ref{sec:importancia} explora a importância dos atributos, tanto de forma agregada por Objetivos de Desenvolvimento Sustentável (ODS) quanto de forma individual, para identificar quais indicadores mais contribuem para a classificação do IDEB.
+
+\section{Análise de Desempenho dos Modelos}
+\label{sec:desempenho}
+
+Os modelos foram avaliados de forma independente para os anos finais e anos iniciais. As bases têm tamanhos distintos: dos 295 municípios catarinenses, 152 possuem IDEB disponível para anos finais e 273 para anos iniciais. Com a reserva de 20\% dos municípios para teste, os conjuntos de teste contêm 31 e 55 municípios, anos finais e iniciais. Esse tamanho deve ser considerado ao interpretar diferenças pequenas entre os modelos. Além disso, as métricas de precisão, \textit{recall} e \textit{F1-score} são reportadas pela média macro, que atribui o mesmo peso a cada faixa de desempenho, independentemente do número de municípios que ela contém. A Tabela~\ref{tab:resultados-af-global} apresenta o desempenho dos modelos aplicados ao conjunto de dados com todos os atributos para predição do cenário dos anos finais do ensino fundamental.
+\begin{table}[htbp]
+	\centering
+	\caption{Métricas de desempenho no conjunto de teste para anos finais com o conjunto de dados completo.}
+	\label{tab:resultados-af-global}
+	\small
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|r|r|r|r|}
+			\hline
+			\textbf{Modelo} & \textbf{Acurácia} & \textbf{Precisão (Macro)} & \textbf{Recall (Macro)} & \textbf{F1-score (Macro)} \\
+			\hline
+			LightGBM               & 0,6129 & 0,4297 & 0,4652 & 0,4447 \\
+			\textit{Random Forest} & 0,6129 & 0,4389 & 0,4634 & 0,4367 \\
+			CatBoost               & 0,5806 & 0,3832 & 0,4414 & 0,4087 \\
+			XGBoost                & 0,5161 & 0,3782 & 0,3901 & 0,3737 \\
+			\hline
+	\end{tabular}}
+	\\[2pt]
+	\footnotesize{Fonte: A autora, 2026.}
+\end{table}
+
+Para a tarefa de classificação do índice dos anos finais, o \textit{LightGBM} e o \textit{Random Forest} apresentaram acurácia de 61,29\% (19 dos 31 municípios de teste). O \textit{LightGBM} obteve o maior F1-\textit{score} (0,4447) e o maior \textit{recall} (0,4652), enquanto o \textit{Random Forest} teve a maior precisão (0,4389). Entretanto, as diferenças entre os dois são inferiores a 0,01 em todas as métricas, o que, com apenas 31 municípios de teste, não permite apontar um modelo superior: trata-se de um empate. O \textit{CatBoost} (58,06\%) também apresenta desempenho competitivo, ao passo que o \textit{XGBoost} apresentou o pior desempenho em todas as métricas, com acurácia de 51,61\%.
+Para dimensionar esses valores, cabe compará-los a um classificador que sempre prediz a classe majoritária, cuja acurácia equivale à proporção dessa classe na base: 44,7\% nos anos finais. Todos os modelos superam esse referencial.
+
+A Tabela~\ref{tab:resultados-ai-global} apresenta os resultados obtidos no subconjunto de dados com todos os atributos. Nessa variável alvo, a faixa majoritária concentra 62,6\% dos municípios.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Métricas de desempenho no conjunto de teste para anos iniciais com o conjunto de dados completo.}
+	\label{tab:resultados-ai-global}
+	\small
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|r|r|r|r|}
+			\hline
+			\textbf{Modelo} & \textbf{Acurácia} & \textbf{Precisão (Macro)} & \textbf{Recall (Macro)} & \textbf{F1-score (Macro)} \\
+			\hline
+			\textit{Random Forest} & 0,6545 & 0,4657 & 0,3902 & 0,3641 \\
+			CatBoost               & 0,6545 & 0,4444 & 0,4275 & 0,4198 \\
+			LightGBM               & 0,6545 & 0,5581 & 0,4732 & 0,4917 \\
+			% TODO: substituir pelos valores do XGBoost (AI, base global) após a nova execução do notebook 04
+			XGBoost                & 0,XXXX & 0,XXXX & 0,XXXX & 0,XXXX \\
+			\hline
+	\end{tabular}}
+	\\[2pt]
+	\footnotesize{Fonte: A autora, 2026.}
+\end{table}
+
+% TODO: após a nova execução, comentar também o XGBoost (AI, base global) neste parágrafo.
+A análise dos resultados dos anos iniciais revela que \textit{Random Forest}, \textit{CatBoost} e \textit{LightGBM} alcançaram a mesma acurácia (65,45\%, ou 36 dos 55 municípios de teste), de modo que a comparação entre eles depende das métricas macro. O \textit{LightGBM} se destaca, com F1-\textit{score} de 0,4917, seguido pelo \textit{CatBoost} (0,4198) e pelo \textit{Random Forest} (0,3641). Este último teve o menor \textit{recall} (0,3902), o que sugere maior tendência a atribuir a classe majoritária.
+
+\section{Impacto da Seleção de Atributos}
+\label{sec:selecao}
+
+Com o intuito de verificar se a remoção de redundâncias melhora a capacidade preditiva dos modelos, analisou-se o comportamento dos algoritmos em um subconjunto de dados com atributos selecionados, que reduz a base de 132 para 105 atributos. A Tabela~\ref{tab:resultados-af-parcial} apresenta os resultados para tarefa preditiva da classificação do IDEB nos anos finais.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Métricas de desempenho no conjunto de teste para anos finais com subconjunto de dados com 105 atributos.}
+	\label{tab:resultados-af-parcial}
+	\small
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|r|r|r|r|}
+			\hline
+			\textbf{Modelo} & \textbf{Acurácia} & \textbf{Precisão (Macro)} & \textbf{Recall (Macro)} & \textbf{F1-score (Macro)} \\
+			\hline
+			LightGBM               & 0,7097 & 0,3568 & 0,4152 & 0,3818 \\
+			XGBoost                & 0,7097 & 0,3643 & 0,4212 & 0,3906 \\
+			CatBoost               & 0,6774 & 0,3372 & 0,4045 & 0,3675 \\
+			\textit{Random Forest} & 0,6452 & 0,3219 & 0,3879 & 0,3505 \\
+			\hline
+	\end{tabular}}
+	\\[2pt]
+	\footnotesize{Fonte: A autora, 2026.}
+\end{table}
+
+Na análise dos resultados da variável alvo dos anos finais, a seleção de atributos elevou a acurácia de todos os modelos: \textit{LightGBM} e \textit{XGBoost} atingiram 70,97\% (22 dos 31 municípios), e o ganho do \textit{XGBoost} foi o mais expressivo, de 51,61\% para 70,97\%. Outros modelos que também apresentam ganho de acurácia são o \textit{Random Forest} e o \textit{CatBoost}.
+
+Esse ganho, entretanto, não se refletiu nas métricas macro. O F1-\textit{score} do \textit{LightGBM} caiu de 0,4447 para 0,3818, o do \textit{Random Forest} de 0,4367 para 0,3505 e o do \textit{CatBoost} de 0,4087 para 0,3675. Apenas o \textit{XGBoost} apresentou aumento (de 0,3737 para 0,3906). A precisão macro diminuiu em todos os modelos, e o \textit{recall} macro diminuiu em três deles, aumentando somente no \textit{XGBoost} (de 0,3901 para 0,4212). Isso sugere que, para a maioria dos modelos preditivos, a redução de atributos favoreceu a classificação das classes majoritárias em detrimento das minoritárias, provavelmente pela eliminação de variáveis que ajudavam a delimitar as classes menos frequentes. 
+
+A Tabela~\ref{tab:resultados-ai-parcial} apresenta os resultados para tarefa preditiva da classificação do IDEB nos anos iniciais. 
+
+\begin{table}[htbp]
+	\centering
+	\caption{Métricas de desempenho no conjunto de teste para anos iniciais com subconjunto de dados com 105 atributos.}
+	\label{tab:resultados-ai-parcial}
+	\small
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|r|r|r|r|}
+			\hline
+			\textbf{Modelo} & \textbf{Acurácia} & \textbf{Precisão (Macro)} & \textbf{Recall (Macro)} & \textbf{F1-score (Macro)} \\
+			\hline
+			CatBoost               & 0,6909 & 0,4535 & 0,4174 & 0,4070 \\
+			XGBoost                & 0,6727 & 0,4466 & 0,3754 & 0,3485 \\
+			\textit{Random Forest} & 0,6727 & 0,4196 & 0,4081 & 0,3952 \\
+			LightGBM               & 0,6545 & 0,7031 & 0,4288 & 0,4523 \\
+			\hline
+	\end{tabular}}
+	\\[2pt]
+	\footnotesize{Fonte: A autora, 2026.}
+\end{table}
+
+O modelo preditivo \textit{CatBoost} obteve a maior acurácia (69,09\%), mas com leve queda no F1-\textit{score} (de 0,4198 para 0,4070). O \textit{Random Forest} melhorou tanto em acurácia (de 65,45\% para 67,27\%) quanto em F1-\textit{score} (de 0,3641 para 0,3952), enquanto o \textit{LightGBM} manteve a acurácia (65,45\%) e teve queda no F1-\textit{score}, de 0,4917 para 0,4523. O \textit{XGBoost} igualou a acurácia do \textit{Random Forest} (67,27\%), mas apresentou o menor F1-\textit{score} da tabela (0,3485), com \textit{recall} de 0,3754.
+
+% TODO: revisar a contagem de comparações abaixo quando o XGBoost (AI, base completa) estiver disponível.
+Em uma análise geral, a seleção de atributos não produziu melhora consistente. Em relação ao conjunto de dados com todos os atributos, a acurácia aumentou em todos os modelos dos anos finais e em dois dos três modelos dos anos iniciais com comparação direta; o \textit{LightGBM} manteve o valor, mas o F1-\textit{score} diminuiu em cinco das sete comparações.
+
+% TODO: revisar esta síntese entre algoritmos após a nova execução do XGBoost (AI, base completa).
+Quanto à escolha entre os algoritmos, o \textit{LightGBM} se destacou pelo F1-\textit{score} na maior parte dos cenários (três dos quatro), e o \textit{CatBoost} pela acurácia no subconjunto de dados dos anos iniciais, enquanto \textit{Random Forest} e \textit{XGBoost} tiveram desempenho mais irregular. Isso demonstra que a escolha entre eles depende da métrica a ser priorizada.
+
+\section{Análise da Importância dos Atributos}
+\label{sec:importancia}
+
+A importância dos atributos foi calculada de forma intrínseca pelos modelos baseados em árvores: redução média de impureza (Gini) no \textit{Random Forest}, ganho (\textit{gain}) no \textit{XGBoost} e no \textit{LightGBM}, e mudança no valor de predição no \textit{CatBoost}. Como o conjunto de indicadores do IDSC de Santa Catarina possui poucos municípios e muitos atributos, o que torna a importância instável, cada modelo foi retreinado com cinco sementes aleatórias, em cinco réplicas do experimento. A importância de cada atributo foi normalizada (soma igual a 1 em cada modelo) e calculada pela média das sementes. O valor final é a média entre os quatro algoritmos, e a análise considera os indicadores tanto de forma individual quanto agregada por ODS. Os escores sintéticos do índice (\textit{Goal N Score} e Pontuação Índice ODS 2025) formam um grupo próprio, denominado escores agregados, para que os indicadores que eles resumem não sejam contados duas vezes.
+
+\subsection{Importância agregada por ODS na base completa}
+
+Ao considerar todo o conjunto de dados, os mesmos três grupos se destacam nas duas etapas, ainda que em ordens distintas. Nos anos finais, o ODS 3 (saúde e bem-estar) concentra a maior importância (25,80\%), seguido pelo ODS 4 (educação de qualidade), com 15,96\%, e pelos escores agregados, com 12,32\%. Nos anos iniciais, o ODS 4 assume a primeira posição de destaque (21,44\%), seguido pelos escores agregados (18,85\%) e pelo ODS 3 (13,96\%). Em ambos os casos, os três grupos somam pouco mais da metade da importância total (54,08\% nos anos finais e 54,25\% nos anos iniciais), e nenhum dos demais ultrapassa 9\%.
+
+Observa-se que, ao classificar o índice educacional, o ODS 4 não seja o grupo mais importante nos anos finais; a variável de maior importância, o ODS 3, não se destaca apenas pela quantidade: quatro dos dez indicadores de maior importância média nos anos finais pertencem a ele, contra apenas um do ODS 4. Além disso, indicadores de saúde, nutrição e gênero podem funcionar como representantes indiretos das condições socioeconômicas dos municípios, que se associam ao desempenho escolar. Esses fatores não implicam que a saúde cause melhor desempenho educacional: a importância indica o quanto o modelo utiliza o atributo para separar as classes, e não uma relação causal.
+
+\subsection{Efeito da seleção de atributos sobre a importância}
+
+\begin{table}[htbp]
+	\centering
+	\caption{Importância agregada por ODS no conjunto e subconjunto com 105 atributos para os anos finais e iniciais.}
+	\label{tab:ods-importance-completa}
+	\small
+	\renewcommand{\arraystretch}{1.2}
+	
+	% --- Tabela dos Anos Finais ---
+	\textbf{(a) Anos Finais}
+	\vspace{3pt}
+	
+	\begin{tabularx}{\textwidth}{|X|r|X|r|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Base Completa}} & \multicolumn{2}{c|}{\textbf{Base Parcial (105 Atributos)}} \\
+		\hline
+		\textbf{Grupo / ODS} & \textbf{Importância (\%)} & \textbf{Grupo / ODS} & \textbf{Importância (\%)} \\
+		\hline
+		ODS 3 (Saúde e Bem-Estar) & 25,80 & ODS 3 (Saúde e Bem-Estar) & 32,22 \\
+		ODS 4 (Educação de Qualidade) & 15,96 & Escores Agregados & 13,25 \\
+		Escores Agregados & 12,32 & ODS 2 (Fome Zero e Agr. Sust.) & 6,96 \\
+		ODS 5 (Igualdade de Gênero) & 5,99 & ODS 5 (Igualdade de Gênero) & 6,55 \\
+		ODS 10 (Red. das Desigualdades) & 4,63 & ODS 10 (Red. das Desigualdades) & 5,72 \\
+		ODS 2 (Fome Zero e Agr. Sust.) & 8,17 & ODS 13 (Ação Clima) & 5,40 \\
+		\hline
+	\end{tabularx}
+	
+	\vspace{10pt}
+	
+	% --- Tabela dos Anos Iniciais ---
+	\textbf{(b) Anos Iniciais}
+	\vspace{3pt}
+	
+	\begin{tabularx}{\textwidth}{|X|r|X|r|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{Base Completa}} & \multicolumn{2}{c|}{\textbf{Base Parcial (105 Atributos)}} \\
+		\hline
+		\textbf{Grupo / ODS} & \textbf{Importância (\%)} & \textbf{Grupo / ODS} & \textbf{Importância (\%)} \\
+		\hline
+		ODS 4 (Educação de Qualidade) & 21,44 & Escores Agregados & 23,74 \\
+		Escores Agregados & 18,85 & ODS 3 (Saúde e Bem-Estar) & 17,97 \\
+		ODS 3 (Saúde e Bem-Estar) & 13,96 & ODS 8 (Trabalho Decente e Cresc.) & 8,20 \\
+		ODS 8 (Trabalho Decente e Cresc.) & 7,91 & ODS 2 (Fome Zero e Agr. Sust.) & 6,81 \\
+		ODS 5 (Igualdade de Gênero) & 6,89 & ODS 11 (Cidades Sustentáveis) & 6,73 \\
+		ODS 2 (Fome Zero e Agr. Sust.) & 4,66 & ODS 10 (Red. das Desigualdades) & 5,09 \\
+		\hline
+	\end{tabularx}
+	
+	\vspace{4pt}
+	\footnotesize{Nota: Valores em \% da importância total.}
+	
+	\vspace{2pt}
+	\footnotesize{Fonte: A autora, 2026.}
+\end{table}
+
+O resultado mais evidente é o desaparecimento do ODS 4 nas duas etapas: no subconjunto, nenhum indicador desse ODS permaneceu após a seleção de atributos. Esse desaparecimento não significa que a educação deixou de ser relevante, mas que seus indicadores foram retirados da base na etapa anterior, como descrito anteriormente. Além disso, como a importância é relativa e resulta em uma soma de 100\% em cada modelo, a ausência do ODS 4 liberou 15,96\% para os anos finais e 21,44\% para os anos iniciais de importância, que foram redistribuídos entre os demais grupos.
+
+
+
+
+
+\chapter{CONSIDERAÇÕES FINAIS}
+
+Este trabalho investiga em que medida os indicadores do Índice de Desenvolvimento Sustentável das Cidades (IDSC) permitem classificar as faixas de desempenho do Índice de Desenvolvimento da Educação Básica (IDEB) dos municípios de Santa Catarina, e quais desses indicadores mais influenciam os modelos preditivos. Para isso, o IDEB dos anos iniciais e anos finais do ensino fundamental foi segmentado em faixas a partir da nota bruta, e quatro algoritmos baseados em árvores de decisão (\textit{Random Forest}, \textit{XGBoost}, \textit{LightGBM} e \textit{CatBoost}) foram treinados e comparados em dois experimentos: o primeiro com 132 atributos do conjunto de dados, o segundo considera um subconjunto de 105 atributos, obtido por filtragem de correlação e remoção dos indicadores do ODS 4, relacionados à educação. A importância dos atributos foi extraída pelas medidas intrínsecas de cada algoritmo, normalizadas, calculadas entre diferentes replicações e associadas aos Objetivos de Desenvolvimento Sustentável (ODS).
+
+Os resultados permitem atender aos objetivos propostos. A revisão da literatura sustentou a escolha de modelos de árvores e de métricas de interpretabilidade. A análise exploratória demonstra a complexa diversidade da base nacional e justifica o recorte em Santa Catarina. A seleção de atributos reduziu o conjunto de 132 para 105 colunas, e a comparação entre os dois experimentos mostrou que essa redução não produziu melhora consistente no desempenho, dentro da análise permitida pelo tamanho do conjunto de teste. Os modelos de classificação foram aplicados e avaliados nas duas variáveis alvo e as métricas de importância evidenciaram os indicadores mais relevantes. Portanto, considera-se atingido o objetivo geral de analisar o desempenho de modelos de classificação baseados em árvores de decisão na predição das faixas do IDEB e de identificar, por suas métricas estruturais, os indicadores sustentáveis associados a essa classificação. A principal contribuição do trabalho é a análise do IDEB a partir de dados externos ao ambiente escolar, restrita a um estado e acompanhada de interpretabilidade, com um procedimento reprodutível.
+
+Quanto ao desempenho preditivo, os algoritmos de \textit{gradient boosting} (\textit{LightGBM}, \textit{XGBoost} e \textit{CatBoost}) apresentaram resultados semelhantes ao \textit{Random Forest}. A etapa de seleção de atributos elevou a acurácia nos anos finais, mas reduziu o F1-\textit{score} macro na maior parte dos modelos, e nos anos iniciais seu efeito dependeu do algoritmo. Contudo, como a diferença de acertos entre os algoritmos equivale a poucos municípios no conjunto de teste, não é possível afirmar a superioridade absoluta de um modelo sobre os demais. Na análise de importância, os indicadores de saúde pública (ODS 3) destacaram-se como os mais influentes nos anos finais, enquanto nos anos iniciais, na base completa, a relevância esteve concentrada nos indicadores educacionais (ODS 4) e nos escores agregados do índice. Esses achados reforçam que a qualidade educacional municipal está associada a fatores socioeconômicos externos ao ambiente escolar, fornecendo direcionamentos úteis para a gestão pública. Cabe ressaltar que os resultados indicam associação entre as variáveis, e não uma relação direta de causa e efeito.
+
+Algumas limitações metodológicas devem ser consideradas, como o número reduzido de municípios analisados, que torna o conjunto de dados pequeno e deixa o modelo mais sensível a erros pontuais. Além disso, os testes foram realizados com uma única divisão dos dados, sem validações repetidas. Adicionalmente, a baixa quantidade de cidades com notas extremas (muito altas ou muito baixas) também dificulta uma avaliação mais estável nessas faixas. Outro ponto é que alguns índices gerais podem apresentar informações parecidas com a nota avaliada, e variáveis semelhantes acabam dividindo a importância entre si, dificultando isolar o impacto de cada indicador. Por fim, os resultados refletem apenas a realidade de Santa Catarina e não devem ser generalizados para outros estados.
+
+Como trabalho futuro, sugere-se inicialmente repetir a avaliação com validação cruzada repetida ou múltiplas partições, de modo a obter intervalos de confiança e comparações estatisticamente mais robustas. Além disso, sugere-se métricas intrínsecas com outras técnicas de interpretabilidade, como a importância por permutação e o TreeSHAP, que também indica a direção do efeito de cada indicador. Ainda há a possibilidade de tratar as faixas do IDEB como categorias ordenadas, por meio de classificação ordinal ou regressão, em vez de classes independentes, além de incluir agrupamentos de municípios em perfis, a fim de verificar se modelos específicos por perfil melhoram a predição. Este trabalho também possui a possibilidade de estender a análise a outros estados ou a outros anos do IDEB, bem como incorporar dados escolares do INEP, de modo a comparar a contribuição de fatores internos e externos à escola.
+
+

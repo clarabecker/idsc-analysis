@@ -1,92 +1,114 @@
 \chapter{Fundamentação Teórica}
 
 \section{Aprendizado de Máquina}
-O Aprendizado de Máquina (\textit{Machine Learning}) é o ramo da Inteligência Artificial focado no desenvolvimento de algoritmos com capacidade de identificar padrões em grandes volumes de dados, com o objetivo de predizer o resultado de um atributo específico. Segundo a definição clássica \cite{mitchell1997machine}, o aprendizado de máquina permite que sistemas melhorem seu desempenho com base na experiência. No estudo apresentado, esses algoritmos são empregados para modelar a relação entre os índices do IDSC e o índice de avaliação do IDEB, sendo responsáveis por estimar a relação matemática entre as variáveis.
+O aprendizado de máquina (\textit{machine learning}) é o ramo da inteligência artificial focado no desenvolvimento de algoritmos com capacidade de identificar padrões em grandes volumes de dados, no caso do aprendizado supervisionado, a identificação tem como objetivo predizer o resultado de um atributo específico. Segundo a definição clássica \cite{mitchell1997machine}, o aprendizado de máquina permite que sistemas melhorem seu desempenho com base na experiência. No estudo apresentado, esses algoritmos são empregados para modelar a relação entre os índices do IDSC e o índice de avaliação do IDEB, sendo responsáveis por estimar a relação matemática entre estas variáveis.
 
 \subsection{Paradigmas de Aprendizado de Máquina}
 A literatura divide as abordagens de aprendizado de máquina em categorias formadas de acordo com a presença ou ausência de uma variável resposta durante o treinamento. As duas categorias abrangidas neste estudo são o aprendizado supervisionado e o não supervisionado.
 
-O aprendizado de máquina supervisionado, de acordo com \citeonline{murphy2012machine}, consiste no mapeamento de uma função que conecta um vetor de características de entrada $X$ a uma saída esperada $Y$, utilizando um conjunto de dados previamente rotulado. O objetivo é aproximar uma função $\hat{f}(X) \approx Y$ que minimize o erro. O processo envolve a divisão dos dados em dois subconjuntos: treino e teste. O conjunto de treino é responsável pelo aprendizado por meio da identificação de padrões e o de teste é responsável por validar a eficácia do modelo, observando dados desconhecidos na fase de treinamento para avaliar seu resultado. Então, o algoritmo aprende a função que mapeia entradas em saídas por meio dos dados rotulados, aprendendo a relação entre as variáveis de entrada e de resposta.
+O aprendizado de máquina supervisionado, de acordo com \citeonline{murphy2012machine}, consiste no mapeamento de uma função que conecta um vetor de características de entrada $X$ a uma saída esperada $Y$, utilizando um conjunto de dados previamente rotulado. O objetivo é aproximar uma função $\hat{f}(X) \approx Y$ que minimize o erro. O processo envolve a divisão dos dados em dois subconjuntos: treino e teste. O conjunto de treino é responsável pelo aprendizado por meio da identificação de padrões e o de teste é responsável por validar a eficácia do modelo, observando dados desconhecidos na fase de treinamento para avaliar seu resultado. Então, o algoritmo aprende a função que mapeia entradas a saídas por meio dos dados rotulados, aproximndo a relação entre as variáveis de entrada e de resposta.
 
 Já o aprendizado não supervisionado, segundo \cite{bishop2006pattern}, foca na identificação de estruturas e correlações latentes em bases de dados que não possuem um alvo predefinido. Sem rótulos para guiar o treinamento, os algoritmos operam a partir de propriedades matemáticas dos dados, como proximidade espacial e densidade. Nesse estudo, esse paradigma é empregado no agrupamento dos municípios em perfis conforme suas características.
 
-\subsection{Conjunto de Dados}
-
-O estudo utiliza uma única base de dados, de acesso público: o Índice de Desenvolvimento Sustentável das Cidades - Brasil (IDSC-BR), edição de 2025 \cite{idscbr2023}, estruturado a partir dos 17 Objetivos de Desenvolvimento Sustentável (ODS) da ONU \cite{onu2015agenda2030}. A planilha original reúne os 5.570 municípios brasileiros e 442 colunas, entre indicadores brutos, indicadores normalizados em escala de 0 a 100, pontuações por objetivo, classificações do Painel e metadados. O Índice de Desenvolvimento da Educação Básica (IDEB), produzido pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP) \cite{inep_ideb}, está incluído na própria base como indicador do ODS 4, tanto para os anos iniciais quanto para os anos finais do ensino fundamental.
-
-Dessa forma, atributos e variável alvo têm a mesma origem. A nota bruta do IDEB foi extraída da base e mantida em arquivo separado, constituindo a variável alvo ($Y$), enquanto os demais indicadores compõem os atributos preditores ($X$), após a remoção preventiva das colunas que compartilham dependência com o IDEB. O recorte espacial compreende os 295 municípios do estado de Santa Catarina, identificados pelo código do IBGE, dos quais permaneceram 151 municípios nos anos finais e 272 nos anos iniciais após a exclusão daqueles sem IDEB divulgado e das classes com menos de dois exemplos.
-
 \subsection{Redução de Dimensionalidade e Seleção de Atributos}
 
-Com o objetivo de mitigar a complexidade informacional, remover redundâncias e selecionar os indicadores mais relevantes da base de dados do IDSC, empregam-se técnicas de pré-processamento voltadas à redução de dimensionalidade e seleção de \textit{features}. 
+Com o objetivo de mitigar a complexidade informacional, remover redundâncias e selecionar os indicadores mais relevantes de uma base de dados, empregam-se técnicas de pré-processamento voltadas à redução de dimensionalidade e seleção de \textit{features}. 
 
 A primeira abordagem consiste na análise de correlação de variáveis, utilizada para identificar e eliminar atributos altamente colineares. Essa técnica avalia o grau de associação linear entre os pares de variáveis preditoras, permitindo descartar aquelas que carregam informações redundantes e mantendo apenas as que possuem maior independência estatística ou maior correlação direta com a variável alvo.
 
-Adicionalmente, utiliza-se a técnica de análise de componentes principais (PCA - \textit{Principal Component Analysis}). Proposta originalmente na estatística por Karl Pearson em 1901 \cite{pearson1901lines} e posteriormente desenvolvida de forma independente por Harold Hotelling em 1933 \cite{hotelling1933analysis}, a PCA é um método não supervisionado de transformação linear amplamente aplicado para simplificar conjuntos de dados de alta dimensionalidade. O algoritmo mapeia o espaço original de variáveis para um novo sistema de coordenadas ortogonais, maximizando a variância explicada. As novas variáveis geradas, denominadas componentes principais, são combinações lineares dos indicadores originais, reduzindo o ruído e otimizando a eficiência computacional dos modelos preditivos.
+Adicionalmente, utiliza-se a técnica de análise de componentes principais (PCA - \textit{Principal Component Analysis}). Proposta originalmente na estatística por \citeonline{pearson1901lines} e posteriormente desenvolvida de forma independente por  \citeonline{hotelling1933analysis}, a PCA é um método não supervisionado de transformação linear amplamente aplicado para simplificar conjuntos de dados de alta dimensionalidade. O algoritmo mapeia o espaço original de variáveis para um novo sistema de coordenadas ortogonais, maximizando a variância explicada. As novas variáveis geradas, denominadas componentes principais, são combinações lineares dos indicadores originais, reduzindo o ruído e otimizando a eficiência computacional dos modelos preditivos.
 
-\section{Modelos de Classificação e Predição}
+\section{Modelos Preditivos de Classificação}
 
-Modelos de classificação, como técnicas de aprendizado de máquina supervisionado, buscam aproximar uma função capaz de mapear variáveis preditoras $X$ em uma variável alvo discreta $Y$ (correspondente às faixas ou categorias de desempenho do IDEB). Neste estudo, a matriz $X$ guarda os indicadores do IDSC e $Y$ armazena a classe categórica do IDEB dos municípios catarinenses.
+Modelos de classificação, como técnicas de aprendizado de máquina supervisionado, buscam aproximar uma função capaz de mapear variáveis preditoras $X$ em uma variável alvo discreta $Y$. São empregados neste estudo modelos de classifiação baseados em árvores de decisão e eles se diferenciam entre si pela forma como as árvores são construídas e combinada. 
+
+O \textit{Random Forest} \citeonline{breiman2001} combina várias árvores treinadas de forma independente e define a classe de resultado através do voto majoritário, ele tem como característica a variância ao combinar árvores, mostrando mais robustez a ruído e sendo pouco sensível à escolha de hiperparâmetros. O modelo se mostra menos interpretável do que o modelo de árvore de decisão e exige a imputação de dados ausentes. Já os modelos de \textit{Gradient Boosting} \citeonline{friedman2001} treinam as árvores de forma sequencial, cada ávore corrige o erro da anterior. Os modelos \textit{Gradient Boosting} explorados possuem alto desempenho preditivo, tratam valores ausentes internamente, porém se mostram mais sensíveis a escolha de hiperparâmetro.
 
 \subsection{Random Forest}
 
-O modelo \textit{Random Forest}, proposto por \citeshort{breiman2001}, evolui o modelo de árvores de decisão. O modelo cria árvores de decisão independentes; cada árvore opera em um subespaço estocástico, ou seja, apenas uma parte dos dados e uma parte das variáveis. Além disso, cada árvore é treinada com uma amostra diferente dos dados originais, selecionada por amostragem com reposição. Essa técnica garante que cada árvore de decisão aprenda especificidades diferentes do conjunto total. 
+O modelo \textit{Random Forest}, proposto por \citeshort{breiman2001}, evolui o paradigma de árvores de decisão por meio de aprendizado em conjunto (\textit{ensemble}). O modelo possui duas estratégias principais de aleatorização: a amostragem com reposição (\textit{Bootstrap}), na qual cada árvore é treinada com uma amostra distinta extraída do conjunto de dados original, e o subespaço aleatório de atributos, que restringe a escolha do melhor ponto de corte a um subconjunto sorteado de variáveis em cada divisão de nós. 
 
-O algoritmo usa duas estratégias de sorteio: a amostragem com reposição (\textit{Bootstrap}), que significa que cada árvore é treinada com uma amostra diferente extraída do banco de dados, e o subespaço aleatório de atributos, onde, em cada divisão de nós da árvore, a escolha do melhor ponto de corte fica restrita a um grupo sorteado de variáveis, e não a todas. O resultado final do algoritmo \textit{Random Forest} para classificação é obtido por meio do voto majoritário das predições de todas as árvores.
-
-O processo de construção de cada árvore ocorre de forma recursiva, dividindo os dados em nós hierárquicos. Em tarefas de classificação, o algoritmo determina o ponto de corte em cada nó avaliando qual divisão resulta na maior pureza ou ganho de informação dos dados entre os nós filhos criados. Esse cálculo mede a homogeneidade das classes resultantes. Ao final do treinamento do modelo, o algoritmo consolida o aprendizado coletando as classes preditas independentes de cada árvore e aplicando o voto majoritário para gerar a predição final.
+O processo de construção de cada árvore ocorre de forma recursiva. Em tarefas de classificação, o algoritmo determina o ponto de corte em cada nó avaliando qual divisão resulta na maior pureza ou ganho de informação dos dados entre os nós filhos criados, medindo a homogeneidade das classes resultantes. Ao final do treinamento, o aprendizado é consolidado por meio do voto majoritário das predições independentes de todas as árvores para gerar o resultado final.
 
 \subsection{Gradient Boosting}
 
-O modelo \textit{Gradient Boosting Decision Trees} treina árvores de decisão de forma sequencial, se diferenciando do modelo \textit{Random Forest}, que treina árvores de decisão em paralelo. Conforme \cite{friedman2001}, o princípio do modelo é a otimização de uma função de perda através de um ajuste iterativo, onde cada árvore é treinada para prever resíduos das árvores anteriores. Existem três variações que evoluem o algoritmo:
+O modelo \textit{Gradient Boosting} treina árvores de decisão de forma sequencial, se diferenciando do modelo \textit{Random Forest}, no qual o treinamento ocorre em paralelo. Conforme \citeshort{friedman2001}, o princípio do algoritmo é a otimização iterativa de uma função de perda, em que cada nova árvore é ajustada para prever os resíduos (erros) das árvores anteriores. Dentre as principais evoluções desse algoritmo, destacam-se:
 
-\textbf{XGBoost (\textit{Extreme Gradient Boosting}):} Proposto por \citeshort{chen2016xgboost}, adiciona dois termos de regularização ($L_1$ e $L_2$) à função de perda para conter o crescimento exagerado das árvores e reduzir o sobreajuste. Destaca-se ao incorporar técnicas de otimização que aumentam a eficiência computacional e contribuem para a construção de um modelo mais robusto.
-
-\textbf{LightGBM (\textit{Light Gradient Boosting Machine}):} Proposto por \citeshort{ke2017lightgbm} no ecossistema da Microsoft, adota o crescimento das árvores focado nas folhas. Essa estratégia divide o nó que traz a maior redução de erro global, independentemente do nível da árvore.
-
-\textbf{CatBoost (\textit{Categorical Boosting}):} Desenvolvido por \citeshort{prokhorenkova2018catboost} na empresa Yandex, possui técnicas matemáticas complexas para o tratamento de variáveis categóricas no treinamento, prevenindo o vazamento de dados (\textit{target leakage}).
+\begin{itemize}
+	\item \textbf{XGBoost (\textit{Extreme Gradient Boosting})}: Proposto por \citeshort{chen2016xgboost}, adiciona termos de regularização $L_1$ (Lasso) e $L_2$ (Ridge) à função de perda para conter a complexidade das árvores e mitigar o sobreajuste. O algoritmo utiliza uma aproximação de Taylor de segunda ordem para otimizar a função objetivo e emprega um algoritmo de busca por divisões baseado em histogramas e quantis, acelerando o processamento em grandes volumes de dados.
+	
+	\item \textbf{LightGBM (\textit{Light Gradient Boosting Machine})}: Proposto por \citeshort{ke2017lightgbm}, adota o crescimento de árvores orientado a folhas (\textit{leaf-wise}), dividindo o nó que proporciona a maior redução do erro global, independentemente do nível da árvore. Para otimizar o tempo de execução e o consumo de memória, introduz duas técnicas fundamentais: a amostragem unilateral baseada em gradiente (\textit{Gradient-based One-Side Sampling} - GOSS), que prioriza instâncias com maiores gradientes, e a agrupação de recursos exclusivos (\textit{Exclusive Feature Bundling} - EFB), que reduz a dimensão do espaço de atributos.
+	
+	\item \textbf{CatBoost (\textit{Categorical Boosting})}: Desenvolvido por \citeshort{prokhorenkova2018catboost}, destaca-se pelo tratamento nativo e eficiente de variáveis categóricas via \textit{Target Encoding} ordenado (\textit{Ordered Target Statistics}). Essa abordagem calcula a estatística da variável resposta considerando apenas as observações anteriores em uma permutação aleatória dos dados, o que previne o vazamento de dados (\textit{target leakage}) e o sobreajuste. Além disso, o algoritmo utiliza árvores de decisão oblíquas e simétricas (\textit{oblivious trees}), garantindo predições mais rápidas no tempo de inferência.
+\end{itemize}
 
 \subsection{Métricas de Avaliação de Modelos de Classificação}
 
-Para a validação estatística e a comparação dos modelos, foram adotadas quatro métricas baseadas na Matriz de Confusão. No cenário multiclasse, $TP$, $TN$, $FP$ e $FN$ são obtidos para cada classe $c$ considerando-a como positiva e as demais como negativas (abordagem um-contra-todos).
+Para a validação e a comparação dos modelos, são adotadas diferentes métricas de avaliação. No cenário multiclasse, os valores de $TP$, $TN$, $FP$ e $FN$ são obtidos para cada classe, considerando-a de forma isolada em relação às demais. As variáveis citadas representam: $TP$ os verdadeiros positivos, $TN$ os verdadeiros negativos, $FP$ os falsos positivos e $FN$ os falsos negativos.
 
-A \textbf{Acurácia} mede a proporção total de predições corretas realizadas pelo modelo em relação ao total de instâncias avaliadas, sendo definida por:
-\begin{equation}
-	\text{Acurácia} = \frac{TP + TN}{TP + TN + FP + FN}
-\end{equation}
-onde $TP$ representa os verdadeiros positivos, $TN$ os verdadeiros negativos, $FP$ os falsos positivos e $FN$ os falsos negativos. No cenário multiclasse, equivale à razão entre a soma da diagonal principal da matriz de confusão e o total de instâncias.
+A \textbf{acurácia} mede a proporção total de predições corretas realizadas pelo modelo em relação ao total de instâncias avaliadas, sendo a acurácia definida por
+\begin{center}
+	$\displaystyle \text{Acurácia} = \frac{TP + TN}{TP + TN + FP + FN},$
+\end{center}
 
-A \textbf{Precisão} indica a proporção de predições corretas para uma classe específica em relação ao total de amostras classificadas como pertencentes àquela classe, calculada por:
-\begin{equation}
-	\text{Precisão} = \frac{TP}{TP + FP}
-\end{equation}
+A \textbf{precisão} indica a proporção de predições corretas para uma classe específica em relação ao total de amostras classificadas como pertencentes àquela classe, calculada por
+\begin{center}
+	$\displaystyle \text{Precisão} = \frac{TP}{TP + FP}.$
+\end{center}
 
-O \textit{Recall} (ou Sensibilidade) mede a capacidade do modelo de identificar corretamente todos os resultados reais pertencentes a uma determinada classe, sendo representado por:
-\begin{equation}
-	\text{Recall} = \frac{TP}{TP + FN}
-\end{equation}
+O \textit{recall} (ou sensibilidade) mede a capacidade do modelo de identificar corretamente todos os resultados reais pertencentes a uma determinada classe, sendo representado por
+\begin{center}
+	$\displaystyle \text{Recall} = \frac{TP}{TP + FN}.$
+\end{center}
 
-O \textbf{F1-\textit{score}} é a média harmônica entre a precisão e o \textit{recall}, resumindo em um único valor o equilíbrio entre os dois. Por penalizar valores muito baixos de qualquer um deles, é menos sensível do que a média aritmética a modelos que privilegiam uma métrica em detrimento da outra:
-\begin{equation}
-	F1 = \frac{2 \times \text{Precisão} \times \text{Recall}}{\text{Precisão} + \text{Recall}}
-\end{equation}
+O \textbf{F1-\textit{score}} é a média harmônica entre a precisão e o \textit{recall}, resumindo em um único valor o equilíbrio entre os dois. Por penalizar valores muito baixos de qualquer um deles, é menos sensível do que a média aritmética a modelos que privilegiam uma métrica em detrimento da outra. Essa medida é dada por
+\begin{center}
+	$\displaystyle F1 = \frac{2 \times \text{Precisão} \times \text{Recall}}{\text{Precisão} + \text{Recall}}.$
+\end{center}
 
-Em problemas com mais de duas classes, precisão, \textit{recall} e F1 são calculados para cada classe e combinados por uma média. Na \textbf{média macro}, atribui-se o mesmo peso a todas as classes, independentemente do número de instâncias de cada uma:
-\begin{equation}
-	\text{Métrica}_{macro} = \frac{1}{K} \sum_{c=1}^{K} \text{Métrica}_c
-\end{equation}
+Em problemas com mais de duas classes, precisão, \textit{recall} e F1 são calculados para cada classe e combinados por uma média. Na \textbf{média macro}, atribui-se o mesmo peso a todas as classes, independentemente do número de instâncias de cada uma, sendo
+\begin{center}
+	$\displaystyle \text{Métrica}_{macro} = \frac{1}{K} \sum_{c=1}^{K} \text{Métrica}_c,$
+\end{center}
 em que $K$ é o número de classes. Assim, o F1 macro é a média dos valores de F1 de cada classe. Essa agregação é adequada a problemas com classes desbalanceadas, pois o desempenho deficiente nas classes minoritárias reduz o valor final, o que não ocorre com a acurácia.
 
 \subsection{Métricas Nativas de Importância Baseadas em Árvores}
 
-Os modelos baseados em árvores de decisão possuem indicadores nativos com o objetivo de quantificar a relevância das variáveis preditoras. Em cenários com a aplicação de modelos de classificação, a principal técnica empregada é a redução de impureza, do inglês \textit{Mean Decrease in Impurity} (MDI). Essa técnica aplica um cálculo baseado na redução da impureza (como Gini ou Entropia) nos nós de decisão cada vez que um atributo é elegido para dividir os dados. O grau de importância da variável é o somatório ponderado dos ganhos de pureza, calculado ao longo das ramificações da árvore. 
+Os modelos baseados em árvores de decisão possuem indicadores nativos com o objetivo de quantificar a importância das variáveis preditoras no processo de tomada de decisão. Em cenários de classificação, a técnica padrão mais empregada é a redução de impureza, conhecida como \textit{Mean Decrease in Impurity} (MDI) ou importância baseada em Gini. Essa técnica quantifica a relevância de um atributo por meio do somatório ponderado da redução da impureza ( índice de Gini ou a Entropia) gerada em todos os nós em que o atributo foi utilizado para dividir os dados, ponderada pela fração de amostras que atingem aqueles nós.
 
-Adicionalmente, modelos \textit{Gradient Boosting} possuem três métricas adicionais para o cálculo da importância do atributo. A primeira é o ganho, que representa a relevância do atributo para melhoria da precisão do resultado do modelo; a métrica é semelhante ao MDI e indica quanto a função de perda caiu ao introduzir uma divisão baseada na variável avaliada. A segunda é denominada frequência, que contabiliza o número de vezes em que o atributo foi selecionado para realizar pontos de corte ao longo das árvores. Por fim, a última métrica é a cobertura, que mede o número de observações que passaram pelo nó associado à variável observada.
+Apesar de sua eficiência computacional, a métrica MDI apresenta limitações conhecidas na literatura, como o viés de favorecer variáveis contínuas ou com alta cardinalidade, número grande de categorias distintas, que tendem a ser selecionadas com maior frequência em divisões das árvores. A alternativa para mitigar esse comportamento, é aplicar a \textbf{Importância de Permutação} (\textit{Permutation Importance}), uma abordagem complementar que mede a queda no desempenho preditivo, avaliado pelas métricas de avaliação, quando os valores de uma variável específica são aleatoriamente embaralhados no conjunto de dados de teste, destruindo sua correlação com a classe real.
+
+Adicionalmente, modelos baseados em \textit{Gradient Boosting} (como \textit{XGBoost}, \textit{LightGBM} e \textit{CatBoost}) fornecem três métricas nativas complementares para o cálculo da importância dos atributos ao longo das iterações sequenciais:
+\begin{itemize}
+	\item \textbf{Ganho (\textit{Gain})}: Representa a melhoria média na função de objetivo ou redução de perda proporcionada pelas divisões que aplicam o atributo. Indica o impacto efetivo da variável na qualidade preditiva do modelo.
+	\item \textbf{Frequência (\textit{Frequency} ou \textit{Weight})}: Contabiliza o número total de vezes que um atributo foi selecionado para realizar pontos de corte em todas as árvores construídas no \textit{ensemble}.
+	\item \textbf{Cobertura (\textit{Cover})}: Mede o volume ou a proporção de amostra que transitaram pelos nós divididos pelo atributo analisado, indicando a abrangência populacional daquela regra de decisão no modelo.
+\end{itemize}
 
 \section{Trabalhos Correlatos}
 
-Conforme revisão bibliográfica realizada, são encontrados diversos estudos com aplicações de algoritmos de aprendizado de máquina em microdados do Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP) para predição do Índice de Desenvolvimento da Educação Básica (IDEB) e para identificação de quais fatores são determinantes. Em uma escala regional, Soares et al. \cite{soares2020minerando} realizam a predição por meio da aplicação de Árvores de Decisão em dados de escolas do estado do Maranhão; o estudo identificou que a escolaridade dos pais foi a variável com maior influência no modelo. Ademais, \cite{pinto2021modelo} adotou técnicas de seleção de atributos nos dados de Alagoas, com o objetivo de reduzir o ruído da base de dados, isolando os dados que realmente impactavam a gestão municipal. Outra abordagem adotada por Silva \cite{silva2022mineracao} foi o processo KDD (\textit{Knowledge Discovery in Databases}), empregado para projetar cenários preventivos. O autor argumenta que a ciência de dados deve ser aplicada antes do fechamento dos ciclos de avaliação do governo.
+Conforme revisão bibliográfica realizada, são encontrados diversos estudos com aplicações de algoritmos de aprendizado de máquina em microdados do Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP) para predição do IDEB e para identificação de quais fatores são determinantes. Em uma escala regional, Soares et al. \citeonline{soares2020minerando} realizam a predição por meio da aplicação de Árvores de Decisão em dados de escolas do estado do Maranhão. O estudo identificou que a escolaridade dos pais foi a variável com maior influência no modelo. Ademais, \citeonline{pinto2021modelo} adotou técnicas de seleção de atributos nos dados de Alagoas, com o objetivo de reduzir o ruído da base de dados, isolando os dados que realmente impactavam a gestão municipal. Em outra perspectiva, Silva (2022) empregou o processo KDD (\textit{Knowledge Discovery in Databases}) para projetar cenários educacionais preventivos, argumentando que a mineração de dados deve atuar proativamente antes da consolidação oficial dos ciclos de avaliação governamental.
 
-Outro estudo, agora em escala nacional, volta-se para o mapeamento de técnicas e modelos mais robustos. A revisão sistemática da literatura de Feitosa \cite{feitosa2023aplicacoes} documentou os métodos mais adotados nas pesquisas do país, apontando modelos como \textit{Random Forest}, SVM e \textit{Árvores de Decisão} como os algoritmos mais aplicados e com melhor desempenho nessa área de pesquisa. Ainda com a aplicação de modelos baseados em árvores, Barros et al. \cite{barros2024explicabilidade} combinaram \textit{Gradient Boosting} com a abordagem SHAP (XAI) para adicionar interpretabilidade ao modelo, medindo o impacto de atributos com distorção entre a idade e série do aluno ou falta de laboratórios nas escolas. 2
+Outro estudo, agora em escala nacional, volta-se para o mapeamento de técnicas e modelos mais robustos. A revisão sistemática da literatura de Feitosa \citeonline{feitosa2023aplicacoes} documentou os métodos mais adotados nas pesquisas do país, apontando modelos como \textit{Random Forest}, SVM e \textit{Árvores de Decisão} como os algoritmos mais aplicados e com melhor desempenho nessa área de pesquisa. Ainda com a aplicação de modelos baseados em árvores, \citeonline{barros2024explicabilidade} combinaram \textit{Gradient Boosting} com a abordagem SHAP (XAI) para adicionar interpretabilidade ao modelo, medindo o impacto de atributos com distorção entre a idade e série do aluno ou falta de laboratórios nas escolas. 
 
-O que diferencia esse trabalho da linha de pesquisa dos estudos presentes na literatura é o foco em dados externos ao ambiente escolar para predição da qualidade escolar da educação básica. Enquanto a maior parte das pesquisas explora exclusivamente os dados disponibilizados pelo INEP, o presente estudo avalia o impacto direto dos indicadores do Índice de Desenvolvimento Sustentável das Cidades (IDSC) sobre a nota do IDEB. Além disso, o trabalho se restringe aos municípios catarinenses e acompanha a classificação das faixas do IDEB de uma análise de interpretabilidade, que agrega a importância dos indicadores por Objetivo de Desenvolvimento Sustentável (ODS). Isso permite identificar quais dimensões do desenvolvimento sustentável estão mais associadas ao desempenho educacional, fornecendo subsídios quantitativos para a gestão pública. 
+O que diferencia este trabalho da linha de pesquisa dos estudos presentes na literatura é o foco em dados externos ao ambiente escolar para predição da qualidade escolar da educação básica. Enquanto a maior parte das pesquisas explora exclusivamente os dados disponibilizados pelo INEP, o presente estudo avalia o impacto direto dos indicadores do IDSC sobre a nota do IDEB. Além disso, o trabalho diferencia-se ao associar a predição de faixas do IDEB a uma análise de interpretabilidade orientada pelos Objetivos de Desenvolvimento Sustentável (ODS), conforme sintetizado na Tabela \ref{tab:trabalhos_correlatos}. Essa metodologia aplicada permite identificar quais dimensões do desenvolvimento sustentável estão mais associadas ao desempenho educacional, fornecendo subsídios quantitativos para a gestão pública. 
+
+\begin{table}[htbp]
+	\centering
+	\caption{Comparativo entre os trabalhos correlatos e o presente estudo.}
+	\label{tab:trabalhos_correlatos}
+	\small
+	\renewcommand{\arraystretch}{1.35}
+	\begin{tabular}{p{1.8cm} p{2.3cm} p{2.4cm} p{2.3cm} p{4.3cm}}
+		\hline
+		\textbf{Estudo} & \textbf{Escopo Geográfico} & \textbf{Base de Dados} & \textbf{Técnicas / Modelos} & \textbf{Foco Principal} \\ \hline
+		Soares et al. (2020) & Maranhão (Regional) & Microdados INEP (Escolas) & Árvores de Decisão & Impacto da escolaridade dos pais no IDEB. \\ \hline
+		Pinto (2021) & Alagoas (Regional) & Microdados INEP (Municípios) & Seleção de Atributos & Redução de ruído e gestão municipal. \\ \hline
+		Silva (2022) & Âmbito Nacional & Dados Educacionais do Governo & KDD (\textit{Knowledge Discovery}) & Cenários preventivos educacionais. \\ \hline
+		Feitosa (2025) & Brasil & Literatura Nacional (Revisão) & Random Forest, SVM, Árvores & Mapeamento de algoritmos mais robustos. \\ \hline
+		Barros et al. (2024) & Brasil (Nacional) & INEP + Infraestrutura Escolar & Gradient Boosting + SHAP (XAI) & Explicabilidade de fatores de infraestrutura. \\ \hline
+		\textbf{Presente Estudo} & \textbf{Santa Catarina (Estadual)} & \textbf{IDSC-BR + IDEB Municipal} & \textbf{CatBoost, XGBoost, LightGBM, RF} & \textbf{Indicadores ODS e interpretabilidade aplicada à gestão.} \\ \hline
+	\end{tabular}
+\end{table}
+
+A partir do panorama sintetizado na Tabela \ref{tab:trabalhos_correlatos}, evidencia-se que os avanços recentes como os de \citeonline{barros2024explicabilidade}, concentram-se principalmente em variáveis de infraestrutura escolar e desempenho restrito ao INEP. A inclusão dos indicadores do IDSC rompe com essa limitação tradicional, permitindo mapear de que maneira as metas de sustentabilidade urbana e social dos municípios catarinenses impactam o IDEB e fortalecem a tomada de decisão estratégica na gestão pública.
