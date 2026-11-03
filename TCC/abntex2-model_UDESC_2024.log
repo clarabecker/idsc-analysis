@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.8)  3 NOV 2026 06:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.8)  3 NOV 2026 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2160,7 +2160,7 @@ Underfull \hbox (badness 1062) in paragraph at lines 110--110
 \openout2 = `Textuais/Capitulo03.aux'.
 
  (./Textuais/Capitulo03.tex
-<heatmap_ideb.png, id=362, 702.4644pt x 566.5968pt>
+<heatmap_ideb.png, id=367, 702.4644pt x 566.5968pt>
 File: heatmap_ideb.png Graphic file (type png)
 <use heatmap_ideb.png>
 Package pdftex.def Info: heatmap_ideb.png  used on input line 16.
@@ -2171,7 +2171,7 @@ Package pdftex.def Info: heatmap_ideb.png  used on input line 16.
 
 
  <./heatmap_ideb.png>]
-<scatter_ideb.png, id=371, 633.11531pt x 412.54124pt>
+<scatter_ideb.png, id=376, 633.11531pt x 412.54124pt>
 File: scatter_ideb.png Graphic file (type png)
 <use scatter_ideb.png>
 Package pdftex.def Info: scatter_ideb.png  used on input line 27.
@@ -2188,7 +2188,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 [30] [31]
-<organizacao_projeto.png, id=413, 827.09pt x 154.5775pt>
+<organizacao_projeto.png, id=419, 827.09pt x 154.5775pt>
 File: organizacao_projeto.png Graphic file (type png)
 <use organizacao_projeto.png>
 Package pdftex.def Info: organizacao_projeto.png  used on input line 166.
@@ -2363,10 +2363,10 @@ d.
 (rerunfilecheck)             Checksum: 4397A703E4EDEB39497C6D5884D63AB6;1968.
  ) 
 Here is how much of TeX's memory you used:
- 66241 strings out of 478287
- 1649540 string characters out of 5849290
- 2396731 words of memory out of 5000000
- 82730 multiletter control sequences out of 15000+600000
+ 66248 strings out of 478287
+ 1649616 string characters out of 5849290
+ 2396732 words of memory out of 5000000
+ 82732 multiletter control sequences out of 15000+600000
  560745 words of font info for 455 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,12n,134p,1866b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2380,10 +2380,10 @@ e/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on abntex2-model_UDESC_2024.pdf (45 pages, 485079 bytes).
+Output written on abntex2-model_UDESC_2024.pdf (45 pages, 485297 bytes).
 PDF statistics:
- 760 PDF objects out of 1000 (max. 8388607)
- 664 compressed objects within 7 object streams
- 148 named destinations out of 1000 (max. 500000)
+ 766 PDF objects out of 1000 (max. 8388607)
+ 670 compressed objects within 7 object streams
+ 153 named destinations out of 1000 (max. 500000)
  93716 words of extra memory for PDF output out of 106986 (max. 10000000)
 

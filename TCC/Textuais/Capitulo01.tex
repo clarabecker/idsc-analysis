@@ -23,15 +23,17 @@ Este trabalho se propõe à exploração e análise da base de dados dos indicad
 O objetivo geral deste trabalho é analisar o desempenho de modelos de classificação baseados em Árvores de Decisão na predição do IDEB nos municípios do estado de Santa Catarina, utilizando suas métricas estruturais de importância de atributos para identificar os indicadores sustentáveis que possuem maior impacto na educação básica.
 
 Para alcançar o objetivo geral, definem-se os seguintes objetivos específicos:
-Aplicar técnicas de análise exploratória de dados, matriz de correlação linear de Pearson e gráficos de dispersão para a exploração e análise inicial da base de dados do IDSC;
-
-Aplicar técnicas de redução de dimensionalidade e seleção de características, compreendendo filtragem de correlação e Análise de Componentes Principais (PCA), para a seleção de atributos para predição;
-
-Aplicar modelos de aprendizado de máquina de classificação baseados em árvores de decisão: Random Forest, XGBoost, LightGBM e CatBoost, com ajuste de hiperparâmetros via busca aleatória e validação cruzada, para prever as faixas de desempenho do IDEB dos municípios de Santa Catarina;
-
-Aplicar métricas de extração da importância dos atributos nos modelos preditivos: redução média de impureza, ganho, frequência, cobertura e variação de predição. Agrupadas por Objetivos de Desenvolvimento Sustentável (ODS) para validar a influência dos indicadores do IDSC na predição do IDEB e o entendimento do funcionamento do modelo de predição;
-
-Avaliar e comparar o desempenho dos modelos, por meio das métricas de acurácia, precisão, recall e F1-score e o comportamento das métricas de relevância de atributos entre os cenários com a base completa e com o subconjunto de atributos selecionados dos municípios catarinenses.
+\begin{enumerate}
+	\item Aplicar técnicas de análise exploratória de dados, matriz de correlação linear de Pearson e gráficos de dispersão para a exploração e análise inicial da base de dados do IDSC;
+	
+	\item Aplicar técnicas de redução de dimensionalidade e seleção de características, compreendendo filtragem de correlação e Análise de Componentes Principais (PCA), para a seleção de atributos para predição;
+	
+	\item Aplicar modelos de aprendizado de máquina de classificação baseados em árvores de decisão: Random Forest, XGBoost, LightGBM e CatBoost, com ajuste de hiperparâmetros via busca aleatória e validação cruzada, para prever as faixas de desempenho do IDEB dos municípios de Santa Catarina;
+	
+	\item Aplicar métricas de extração da importância dos atributos nos modelos preditivos: redução média de impureza, ganho, frequência, cobertura e variação de predição, agrupadas por Objetivos de Desenvolvimento Sustentável (ODS) para validar a influência dos indicadores do IDSC na predição do IDEB e o entendimento do funcionamento do modelo de predição;
+	
+	\item Avaliar e comparar o desempenho dos modelos por meio das métricas de acurácia, precisão, recall e F1-score, bem como o comportamento das métricas de relevância de atributos entre os cenários com a base completa e com o subconjunto de atributos selecionados dos municípios catarinenses.
+\end{enumerate}
 
 \section{Justificativa}
 
