@@ -1,5 +1,10 @@
+% --- APÊNDICES ---
+\bookmarksetup{startatroot} 
 
-\section{APÊNDICE A - Uso de ferramentas de inteligência artificial}
+% Apêndice A
+\phantomsection
+\addcontentsline{toc}{chapter}{APÊNDICE A — Uso de ferramentas de inteligência artificial}
+\chapter*{APÊNDICE A — Uso de ferramentas de inteligência artificial}
 
 \begin{table}[htbp]
 	\centering
@@ -8,7 +13,7 @@
 		\toprule
 		\textbf{Etapa} & \textbf{Ferramenta e versão} & \textbf{Data} & \textbf{Objetivo} & \textbf{Revisão aplicada} & \textbf{Prompts} \\
 		\midrule
-		Figura 4 & Claude (Anthropic), Sonnet 5.5 & 26/10/2026 & Código TikZ do gráfico & Teste, ajuste e verificação dos valores da figura & Apêndice~B \\
+		Geração de gráficos & Claude (Anthropic), Sonnet 5.5 & 26/10/2026 & Código TikZ dos gráficos & Teste, ajuste e verificação dos valores das ilustrações & Apêndice~B \\
 		\midrule
 		Revisão geral do texto & Claude (Anthropic), Sonnet 5.5 & 26/10/2026 & Identificação de inconsistências entre capítulos & Originalidade do texto escrito pela autora, sem alterações & Apêndice~B \\
 		\midrule
@@ -22,8 +27,10 @@
 
 \clearpage
 
-% --- APÊNDICE B: Prompts utilizados ---
-\section{APÊNDICE B - Prompts utilizados}
+% Apêndice B
+\phantomsection
+\addcontentsline{toc}{chapter}{APÊNDICE B — Prompts utilizados}
+\chapter*{APÊNDICE B — Prompts utilizados}
 
 \begin{table}[htbp]
 	\centering
@@ -32,11 +39,11 @@
 		\toprule
 		\textbf{Nº} & \textbf{Etapa} & \textbf{Data} & \textbf{Prompt (texto original)} & \textbf{Resposta da ferramenta} \\
 		\midrule
-		1 & Figura 4 & 26/10/2026 & ``A figura ficou bugada na página'' [anexo: captura de tela] & Explicação da causa (posicionamento do \textit{float}) e sugestão de ajuste. \\
+		1 & Ajuste de layout & 26/10/2026 & ``A figura ficou bugada na página'' [anexo: captura de tela] & Explicação da causa (posicionamento do \textit{float}) e sugestão de ajuste. \\
 		\midrule
-		2 & Figura 4 & 26/10/2026 & ``Não posso usar o float vai bugar tudo'' [anexo: preâmbulo LaTeX] & Correção sem o pacote \textit{float}, usando \texttt{[!htbp]} e ajustes de parâmetros. \\
+		2 & Configuração LaTeX & 26/10/2026 & ``Não posso usar o float vai bugar tudo'' [anexo: preâmbulo LaTeX] & Correção sem o pacote \textit{float}, usando \texttt{[!htbp]} e ajustes de parâmetros. \\
 		\midrule
-		3 & Figura 4 & 26/10/2026 & ``Ficou meio feia, não tem como deixar mais bonito?'' [anexo: captura de tela] & Nova versão do gráfico (destaque, porcentagens, grade). \\
+		3 & Estilização visual & 26/10/2026 & ``Ficou meio feia, não tem como deixar mais bonito?'' [anexo: captura de tela] & Nova versão do gráfico (destaque, porcentagens, grade). \\
 		\midrule
 		4 & Revisão geral & 26/10/2026 & ``Meu tcc ficou bom?'' [anexo: PDF do TCC] & Avaliação geral, lista de inconsistências e erros de texto. \\
 		\midrule

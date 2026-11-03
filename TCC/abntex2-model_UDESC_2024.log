@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.8)  3 NOV 2026 03:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.8)  3 NOV 2026 03:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1986,7 +1986,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--18
 
 
 
-
 ]
 \openout2 = `PreTextuais/Listas.aux'.
 
@@ -2160,16 +2159,12 @@ Underfull \hbox (badness 1062) in paragraph at lines 110--110
 \openout2 = `Textuais/Capitulo03.aux'.
 
  (./Textuais/Capitulo03.tex
-
-LaTeX Warning: Reference `fig:heatmapideb' on page 26 undefined on input line 1
-0.
-
 <heatmap_ideb.png, id=361, 702.4644pt x 566.5968pt>
 File: heatmap_ideb.png Graphic file (type png)
 <use heatmap_ideb.png>
 Package pdftex.def Info: heatmap_ideb.png  used on input line 16.
 (pdftex.def)             Requested size: 318.49861pt x 256.9028pt.
-[26
+ [26
 
 
 
@@ -2183,15 +2178,15 @@ Package pdftex.def Info: scatter_ideb.png  used on input line 27.
  [27 <./scatter_ideb.png>] [28] [29]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 09.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [30] [31]
+
+[30] [31]
 <organizacao_projeto.png, id=412, 827.09pt x 154.5775pt>
 File: organizacao_projeto.png Graphic file (type png)
 <use organizacao_projeto.png>
@@ -2199,10 +2194,10 @@ Package pdftex.def Info: organizacao_projeto.png  used on input line 166.
 (pdftex.def)             Requested size: 364.00139pt x 68.0308pt.
  [32 <./organizacao_projeto.png>] [33] [34
 
-] [35] [36] [37] [38] [39
+] [35] [36] [37] [38]
+[39
 
-]) [40]
-(./abntex2-model_UDESC_2024.bbl (./abntex2-model_UDESC_2024.brf)
+]) [40] (./abntex2-model_UDESC_2024.bbl (./abntex2-model_UDESC_2024.brf)
 \tf@brf=\write6
 \openout6 = `abntex2-model_UDESC_2024.brf'.
 
@@ -2219,47 +2214,47 @@ bibitemlist
 \openout2 = `PosTextuais/Apendices.aux'.
 
  (./PosTextuais/Apendices.tex
-Underfull \hbox (badness 1502) in paragraph at lines 17--17
+Underfull \hbox (badness 1502) in paragraph at lines 22--22
 []|\T1/ptm/b/n/10 (+20) Ferramenta e
  []
 
 
-Overfull \hbox (9.00114pt too wide) in paragraph at lines 17--17
+Overfull \hbox (9.00114pt too wide) in paragraph at lines 22--22
 []|\T1/ptm/m/n/10 (-20) Apêndice B| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 []|\T1/ptm/m/n/10 (+20) Revisão ge-ral
  []
 
 
-Underfull \hbox (badness 5878) in paragraph at lines 17--17
+Underfull \hbox (badness 5878) in paragraph at lines 22--22
 \T1/ptm/m/n/10 (+20) es-crito pela au-tora,
  []
 
 
-Overfull \hbox (9.00114pt too wide) in paragraph at lines 17--17
+Overfull \hbox (9.00114pt too wide) in paragraph at lines 22--22
 []|\T1/ptm/m/n/10 (-20) Apêndice B| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 []|\T1/ptm/m/n/10 (+20) Notebook de
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 17--17
+Underfull \hbox (badness 6493) in paragraph at lines 22--22
 []|\T1/ptm/m/n/10 (+20) Revisão do có-digo
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 17--17
+Underfull \hbox (badness 1789) in paragraph at lines 22--22
 \T1/ptm/m/n/10 (+20) ini-ci-ais com có-digo
  []
 
 
-Overfull \hbox (9.00114pt too wide) in paragraph at lines 17--17
+Overfull \hbox (9.00114pt too wide) in paragraph at lines 22--22
 []|\T1/ptm/m/n/10 (-20) Apêndice B| 
  []
 
@@ -2268,54 +2263,71 @@ Overfull \hbox (9.00114pt too wide) in paragraph at lines 17--17
 
 
 
+
 ]
-Underfull \hbox (badness 1616) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\T1/ptm/m/n/10 (+20) Ajuste de
+ []
+
+
+Underfull \hbox (badness 1616) in paragraph at lines 52--52
 \T1/ptm/m/n/10 (+20) mento do \T1/ptm/m/it/10 (+20) float\T1/ptm/m/n/10 (+20) )
  e su-ges-tão de
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+[]|\T1/ptm/m/n/10 (+20) Configuração
+ []
+
+
+Underfull \hbox (badness 5771) in paragraph at lines 52--52
 []|\T1/ptm/m/n/10 (+20) Correção sem o pa-cote \T1/ptm/m/it/10 (+20) float\T1/p
 tm/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+Underfull \hbox (badness 5388) in paragraph at lines 52--52
+[]|\T1/ptm/m/n/10 (+20) Estilização vi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 []|\T1/ptm/m/n/10 (+20) Notebook de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 \T1/ptm/m/n/10 (+20) os mais im-por-tan-tes. Con-fira
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 45--45
+Underfull \hbox (badness 1142) in paragraph at lines 52--52
 \T1/ptm/m/n/10 (+20) se a pon-tu-a-ção ge-ral do IDSC
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 45--45
+Underfull \hbox (badness 1748) in paragraph at lines 52--52
 \T1/ptm/m/n/10 (+20) e a do ODS 4, que em-bu-tem
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 45--45
+Underfull \hbox (badness 3930) in paragraph at lines 52--52
 \T1/ptm/m/n/10 (+20) o IDEB, fo-ram re-mo-vi-das na
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 45--45
+Underfull \hbox (badness 3039) in paragraph at lines 52--52
 \T1/ptm/m/n/10 (+20) base par-cial. [anexo: no-te-book
  []
 
 
-Overfull \hbox (6.79897pt too wide) in paragraph at lines 45--45
+Overfull \hbox (6.79897pt too wide) in paragraph at lines 52--52
 \T1/cmtt/m/n/10 07_feature_importance.ipynb\T1/ptm/m/n/10 (-20) ]| 
  []
 
 ) [44
+
 
 ]
 \openout2 = `PosTextuais/Anexos.aux'.
@@ -2345,18 +2357,15 @@ AED: lastpage setting LastPage
 (./Textuais/Capitulo03.aux) (./PosTextuais/Glossario.aux)
 (./PosTextuais/Apendices.aux) (./PosTextuais/Anexos.aux)
 (./PosTextuais/IndiceRemissivo.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `abntex2-model_UDESC_2024.brf' has not change
 d.
-(rerunfilecheck)             Checksum: 4397A703E4EDEB39497C6D5884D63AB6;1968.
+(rerunfilecheck)             Checksum: EFE4273B4E21A13D9A0BBCA2B72B462E;1968.
  ) 
 Here is how much of TeX's memory you used:
  66239 strings out of 478287
- 1649526 string characters out of 5849290
+ 1649517 string characters out of 5849290
  2396731 words of memory out of 5000000
- 82731 multiletter control sequences out of 15000+600000
+ 82730 multiletter control sequences out of 15000+600000
  560745 words of font info for 455 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,12n,134p,1866b,1041s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2370,10 +2379,10 @@ e/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on abntex2-model_UDESC_2024.pdf (45 pages, 485326 bytes).
+Output written on abntex2-model_UDESC_2024.pdf (45 pages, 485130 bytes).
 PDF statistics:
- 757 PDF objects out of 1000 (max. 8388607)
- 661 compressed objects within 7 object streams
- 145 named destinations out of 1000 (max. 500000)
+ 759 PDF objects out of 1000 (max. 8388607)
+ 663 compressed objects within 7 object streams
+ 146 named destinations out of 1000 (max. 500000)
  93716 words of extra memory for PDF output out of 106986 (max. 10000000)
 
